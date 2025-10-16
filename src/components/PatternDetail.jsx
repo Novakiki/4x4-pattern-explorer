@@ -51,6 +51,14 @@ export default function PatternDetail({ pattern }) {
             <p className="text-stone-700 leading-relaxed">{pattern.whyItMatters}</p>
           </section>
 
+          {/* LDS Example */}
+          {pattern.ldsExample && (
+            <section className="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-400">
+              <h2 className="text-lg font-semibold text-blue-900 mb-3">In the 4×4 Plan</h2>
+              <p className="text-blue-800 leading-relaxed">{pattern.ldsExample}</p>
+            </section>
+          )}
+
           {/* Reflection */}
           <section className="bg-amber-50 rounded-lg p-6 border-l-4 border-amber-400">
             <h2 className="text-lg font-semibold text-amber-900 mb-3">Reflection Question</h2>
@@ -61,8 +69,8 @@ export default function PatternDetail({ pattern }) {
         {/* Footer */}
         <footer className="bg-stone-50 px-8 py-6 border-t border-stone-200">
           <p className="text-sm text-stone-600 text-center">
-            This pattern reveals one dimension of how the framework works. 
-            Together, all 12 patterns create a complete map of consciousness.
+            This pattern reveals one dimension of how the framework works.
+            Together, all 12 patterns create a more complete map of human experience.
           </p>
         </footer>
       </article>

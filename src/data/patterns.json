@@ -12,61 +12,66 @@
         "imagine": "Future (what's not yet here)"
       },
       "whyItMatters": "When we only focus on the urgent present, we lose context and vision. This framework ensures you're connected to all of time—rooted in the past, present in this moment, asking eternal questions, and envisioning the future.",
-      "reflection": "Which dimension of time do you naturally gravitate toward? Which do you avoid?"
+      "reflection": "Which dimension of time do you naturally gravitate toward? Which do you avoid?",
+      "ldsExample": "Mission work (present), temple worship (eternal), family history (past), gathering Israel (future)"
     },
     {
       "id": 2,
       "title": "The Cross/Axis Structure",
-      "subtitle": "Heaven & Earth, Past & Future",
+      "subtitle": "Transcendent & Grounded, Past & Future",
       "description": "The framework forms a cross when mapped as coordinates—horizontal (time) and vertical (dimension).",
       "mapping": {
         "horizontal": "REMEMBER (past) ←→ IMAGINE (future)",
-        "vertical": "ASK (divine/transcendent) ↑↓ OBSERVE (earthly/grounded)"
+        "vertical": "ASK (transcendent/larger) ↑↓ OBSERVE (grounded/immediate)"
       },
-      "whyItMatters": "The cross is humanity's oldest symbol for integration—bringing together heaven and earth, past and future. This framework literally enacts that integration.",
-      "reflection": "Do you tend to live more on the horizontal axis (time-focused) or vertical axis (dimension-focused)? What would balance look like?"
+      "whyItMatters": "Integration requires bridging apparent opposites—transcendent and grounded, past and future. This framework literally enacts that integration through its structure.",
+      "reflection": "Do you tend to live more on the horizontal axis (time-focused) or vertical axis (dimension-focused)? What would balance look like?",
+      "ldsExample": "Heaven and earth, past and future—the cross pattern appears in temple architecture and covenant theology"
     },
     {
       "id": 3,
       "title": "Every Relationship You'll Ever Have",
-      "subtitle": "Self, Other, Divine, Ancestors, Community",
+      "subtitle": "Self, Other, Source, Lineage, Community",
       "description": "Each quadrant engages a different primary relationship.",
       "mapping": {
-        "observe": "Self + Other (the living around you)",
-        "ask": "Self + Divine (covenant dialogue)",
-        "remember": "Self + Ancestors (those who came before)",
-        "imagine": "Self + Community (those being gathered)"
+        "observe": "Self + Other (those immediately present)",
+        "ask": "Self + Source (connection to what's greater)",
+        "remember": "Self + Lineage (those who came before)",
+        "imagine": "Self + Community (the collective being formed)"
       },
       "whyItMatters": "Human wholeness requires all four relationships. When any one is neglected, we become unbalanced. This framework ensures no relationship is forgotten.",
-      "reflection": "Which relationship feels most alive for you right now? Which needs attention?"
+      "reflection": "Which relationship feels most alive for you right now? Which needs attention?",
+      "ldsExample": "Living neighbors, God through covenant, ancestors, gathering Israel into community"
     },
     {
       "id": 4,
       "title": "Four Ways of Knowing",
-      "subtitle": "Empirical, Revelatory, Historical, Intuitive",
+      "subtitle": "Empirical, Inspired, Historical, Intuitive",
       "description": "Each quadrant represents a different epistemology—a different way humans discover truth.",
       "mapping": {
-        "observe": "Empirical knowing (through experience and senses)",
-        "ask": "Revelatory knowing (through divine communication)",
-        "remember": "Historical knowing (through story and record)",
+        "observe": "Empirical knowing (through direct experience and senses)",
+        "ask": "Inspired knowing (through opening to guidance beyond yourself)",
+        "remember": "Historical knowing (through story, record, and lineage)",
         "imagine": "Intuitive knowing (through vision and pattern-recognition)"
       },
-      "whyItMatters": "We're taught to privilege one way of knowing (usually empirical or scriptural), but truth comes through all four channels. This framework honors every way humans can know something.",
-      "reflection": "Which way of knowing feels most natural to you? Which have you been taught to distrust?"
+      "whyItMatters": "We're often taught to privilege one way of knowing, but truth comes through all four channels. This framework honors every way humans can discover what's real.",
+      "reflection": "Which way of knowing feels most natural to you? Which have you been taught to distrust?",
+      "ldsExample": "Personal experience, revelation in the temple, family history records, prophetic vision"
     },
     {
       "id": 5,
-      "title": "The Veil's Four Positions",
-      "subtitle": "This Side, At, Across, Dissolving",
-      "description": "The framework doesn't just cross the veil once—it engages it from every possible angle.",
+      "title": "Four Positions at the Threshold",
+      "subtitle": "Here, At, Beyond, Unified",
+      "description": "The framework engages boundaries from every angle—working on this side, standing at the edge, reaching to the other side, and envisioning wholeness.",
       "mapping": {
-        "observe": "Working on this side of the veil (with the living)",
-        "ask": "Standing at the veil (temple as threshold)",
-        "remember": "Reaching across the veil (to ancestors)",
-        "imagine": "Dissolving the veil (gathering = ultimate unity)"
+        "observe": "This side of the boundary (the present, known, visible)",
+        "ask": "At the threshold (liminal space between states)",
+        "remember": "The other side (what's distant, past, or beyond awareness)",
+        "imagine": "Dissolving boundaries (integration and wholeness)"
       },
-      "whyItMatters": "'On either side of the veil' isn't just about the living and the dead—it's about visible/invisible, outer/inner, material/spiritual. This framework teaches you to honor multiple dimensions of reality.",
-      "reflection": "Where do you most naturally engage with 'the other side'? What would it mean to approach it from all four angles?"
+      "whyItMatters": "Every meaningful framework must bridge different states of being—present and absent, known and unknown, visible and invisible. This pattern ensures you're not stuck on just one side.",
+      "reflection": "What boundary are you working with right now? Which of the four positions feels most needed?",
+      "ldsExample": "Working with the living, temple as threshold, reaching to ancestors across the veil, gathering toward unity"
     },
     {
       "id": 6,
@@ -75,16 +80,17 @@
       "description": "The quadrants alternate between doing and being, preventing burnout.",
       "mapping": {
         "observe": "Active reception (awake, noticing, engaged)",
-        "ask": "Contemplative action (going to temple, covenanting)",
-        "remember": "Active research (doing the work, building trees)",
-        "imagine": "Contemplative projection (envisioning, growing)"
+        "ask": "Contemplative pause (stepping back, reflecting, seeking)",
+        "remember": "Active research (doing the work, building connections)",
+        "imagine": "Contemplative projection (envisioning, allowing emergence)"
       },
       "whyItMatters": "All action with no contemplation leads to exhaustion. All contemplation with no action leads to stagnation. This framework builds rest into the cycle.",
-      "reflection": "Are you more naturally action-oriented or contemplation-oriented? What would balance feel like?"
+      "reflection": "Are you more naturally action-oriented or contemplation-oriented? What would balance feel like?",
+      "ldsExample": "Missionary work (active), temple worship (contemplative), family history work (active), prayerful planning (contemplative)"
     },
     {
       "id": 7,
-      "title": "Jung's Four Functions of Consciousness",
+      "title": "Four Functions of Consciousness",
       "subtitle": "Sensation, Thinking, Feeling, Intuition",
       "description": "Carl Jung identified four fundamental ways the psyche processes reality. This framework maps perfectly to them.",
       "mapping": {
@@ -94,7 +100,8 @@
         "imagine": "Intuition (possibility, pattern-seeing)"
       },
       "whyItMatters": "Jung argued that psychological wholeness requires developing all four functions. Most people have one or two that dominate. This framework ensures you're touching all four, even if some feel uncomfortable.",
-      "reflection": "Which function is your 'home base'? Which one challenges you most?"
+      "reflection": "Which function is your 'home base'? Which one challenges you most?",
+      "ldsExample": "Serving others (sensation), seeking answers in temple (thinking), connecting with ancestors (feeling), envisioning gathering (intuition)"
     },
     {
       "id": 8,
@@ -109,7 +116,8 @@
         "step5": "Back to OBSERVE — You notice what changed"
       },
       "whyItMatters": "This is how therapy works. How education works. How scientific discovery works. How spiritual awakening works. The framework isn't prescribing anything artificial—it's describing the natural cycle of human development.",
-      "reflection": "Where are you in this cycle right now with your biggest current challenge?"
+      "reflection": "Where are you in this cycle right now with your biggest current challenge?",
+      "ldsExample": "Notice a neighbor's need → ask in prayer → remember similar situations → imagine how to help → observe the outcome"
     },
     {
       "id": 9,
@@ -118,12 +126,13 @@
       "description": "The four quadrants map to the four phases of breathing—the most fundamental human rhythm.",
       "mapping": {
         "observe": "Inhale (taking in, receiving, gathering)",
-        "ask": "Hold at the top (pause, contemplation, fullness)",
+        "ask": "Hold at the top (pause, fullness, contemplation)",
         "remember": "Exhale (releasing, honoring, letting go)",
         "imagine": "Hold at the bottom (emptiness, potential, before new creation)"
       },
       "whyItMatters": "The framework literally breathes. It's rhythmic, cyclical, life-giving. You can't rush it. You can't skip steps. It moves at the pace of life itself.",
-      "reflection": "Can you feel the breath rhythm in your spiritual practice? What phase are you in right now?"
+      "reflection": "Can you feel the breath rhythm in your practice? What phase are you in right now?",
+      "ldsExample": "Receive from missionary work, pause in temple worship, release through family history service, rest before beginning again"
     },
     {
       "id": 10,
@@ -131,41 +140,44 @@
       "subtitle": "The Same Pattern at Every Scale",
       "description": "The same 4-part cycle repeats at every scale, from micro to cosmic.",
       "mapping": {
-        "micro": "One conversation: observe what they need → ask how to help → remember similar situations → imagine what's possible",
-        "daily": "One day: morning awareness → midday prayer → afternoon reflection → evening planning",
+        "micro": "One conversation: notice what they need → ask how to help → recall similar situations → envision what's possible",
+        "daily": "One day: morning awareness → midday pause for reflection → afternoon integration → evening planning",
         "lifetime": "One lifetime: present awareness → seeking understanding → integrating your story → envisioning legacy",
-        "cosmic": "All time: current dispensation → revelatory moments → honoring ancestors → millennial gathering"
+        "cosmic": "All time: current moment → eternal questions → honoring what came before → vision of ultimate wholeness"
       },
       "whyItMatters": "Because it's fractal, you can practice this at any scale. You don't need to 'do big things.' The pattern works in a 5-minute interaction just as well as in a 40-year life arc.",
-      "reflection": "What's the smallest scale where you could practice this today?"
+      "reflection": "What's the smallest scale where you could practice this today?",
+      "ldsExample": "From a single conversation to an entire dispensation—the pattern of observe, ask, remember, imagine repeats at every level"
     },
     {
       "id": 11,
-      "title": "The Scientific Method",
-      "subtitle": "How Humans Discover Truth",
+      "title": "The Pattern of Discovery",
+      "subtitle": "How Humans Learn Truth",
       "description": "This is how humans discover truth in any domain—secular or sacred.",
       "mapping": {
         "observe": "Observation (collect data, notice what is)",
         "ask": "Hypothesis (formulate questions, propose answers)",
-        "remember": "Research (review existing knowledge, check the literature)",
+        "remember": "Research (review existing knowledge, consult sources)",
         "imagine": "Theory (propose what could be, test predictions)"
       },
       "whyItMatters": "The framework isn't 'religious vs. scientific.' It's how consciousness itself works. Science and spirituality use the same underlying pattern because it's the pattern of discovery itself.",
-      "reflection": "Have you been taught that faith and inquiry oppose each other? What if they're the same motion?"
+      "reflection": "Have you been taught that faith and inquiry oppose each other? What if they're the same motion?",
+      "ldsExample": "Notice a need, pray for guidance, study the scriptures and family records, envision how to move forward"
     },
     {
       "id": 12,
-      "title": "Perfect Gender Balance",
-      "subtitle": "Masculine & Feminine Energy",
-      "description": "The quadrants alternate between receptive (feminine) and active (masculine) energy.",
+      "title": "Receptive and Active Energy",
+      "subtitle": "The Dance of Receiving and Initiating",
+      "description": "The quadrants alternate between receptive and active energy, creating dynamic balance.",
       "mapping": {
-        "observe": "Receptive/Feminine (receiving what is)",
-        "ask": "Active/Masculine (seeking, pursuing, petitioning)",
-        "remember": "Receptive/Feminine (receiving from ancestors, being taught)",
-        "imagine": "Active/Masculine (creating, building, envisioning)"
+        "observe": "Receptive (receiving what is, being present)",
+        "ask": "Active (seeking, pursuing, initiating)",
+        "remember": "Receptive (receiving from the past, being taught)",
+        "imagine": "Active (creating, building, envisioning)"
       },
-      "whyItMatters": "Neither masculine nor feminine energy is privileged. Both are essential. The framework won't work if you only do half. You need to receive AND initiate, rest AND act.",
-      "reflection": "Which energy feels more natural to you? What would it mean to honor both?"
+      "whyItMatters": "Neither receptive nor active energy is privileged. Both are essential. The framework won't work if you only do half. You need to receive AND initiate, rest AND act.",
+      "reflection": "Which energy feels more natural to you? What would it mean to honor both?",
+      "ldsExample": "Receive in missionary work, initiate in temple worship, receive from ancestors, initiate in gathering"
     }
   ]
 }

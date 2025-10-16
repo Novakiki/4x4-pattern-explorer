@@ -1,0 +1,172 @@
+{
+  "axes": [
+    {
+      "id": "original",
+      "name": "Original (LDS baseline)",
+      "left": "on either side of the veil",
+      "right": null,
+      "description": "The original teaching from President Nelson"
+    },
+    {
+      "id": "inward-outward",
+      "name": "Inward | Outward",
+      "left": "on the inward side",
+      "right": "on the outward side",
+      "description": "Internal vs external orientation"
+    },
+    {
+      "id": "self-other",
+      "name": "Self | Other",
+      "left": "within the self",
+      "right": "toward the other",
+      "description": "Individual vs relational focus"
+    },
+    {
+      "id": "visible-hidden",
+      "name": "Visible | Hidden",
+      "left": "in the visible realm",
+      "right": "in the hidden realm",
+      "description": "What can be seen vs what is unseen"
+    },
+    {
+      "id": "close-distant",
+      "name": "Close | Distant",
+      "left": "in what's close",
+      "right": "in what's distant",
+      "description": "Near vs far, immediate vs remote"
+    },
+    {
+      "id": "part-whole",
+      "name": "Part | Whole",
+      "left": "in the particular part",
+      "right": "in the greater whole",
+      "description": "Individual elements vs integrated system"
+    },
+    {
+      "id": "seed-fruit",
+      "name": "Seed | Fruit",
+      "left": "in the seed",
+      "right": "in the fruit",
+      "description": "Potential vs manifestation"
+    },
+    {
+      "id": "root-branch",
+      "name": "Root | Branch",
+      "left": "in the roots",
+      "right": "in the branches",
+      "description": "Foundation vs expression"
+    },
+    {
+      "id": "rhythm-flow",
+      "name": "Rhythm | Flow",
+      "left": "in the rhythm",
+      "right": "in the flow",
+      "description": "Pattern vs movement"
+    },
+    {
+      "id": "still-moving",
+      "name": "Still | Moving",
+      "left": "in stillness",
+      "right": "in movement",
+      "description": "Rest vs action"
+    },
+    {
+      "id": "receiving-giving",
+      "name": "Receiving | Giving",
+      "left": "in receiving",
+      "right": "in giving",
+      "description": "Taking in vs offering out"
+    },
+    {
+      "id": "knowing-wondering",
+      "name": "Knowing | Wondering",
+      "left": "in what's known",
+      "right": "in what's wondered",
+      "description": "Certainty vs curiosity"
+    },
+    {
+      "id": "form-essence",
+      "name": "Form | Essence",
+      "left": "in the form",
+      "right": "in the essence",
+      "description": "Structure vs substance"
+    },
+    {
+      "id": "awareness",
+      "name": "Within | Beyond Awareness",
+      "left": "within awareness",
+      "right": "beyond awareness",
+      "description": "Conscious vs unconscious (psychological)"
+    },
+    {
+      "id": "systems",
+      "name": "Visible | Invisible Systems",
+      "left": "in visible systems",
+      "right": "in invisible systems",
+      "description": "Seen vs unseen networks (ecological)"
+    },
+    {
+      "id": "defended-vulnerable",
+      "name": "Defended | Vulnerable",
+      "left": "in defended places",
+      "right": "in vulnerable places",
+      "description": "Protected vs open (therapeutic)"
+    },
+    {
+      "id": "thought-practice",
+      "name": "Thought | Practice",
+      "left": "in thought",
+      "right": "in practice",
+      "description": "Ideal vs real (philosophical)"
+    },
+    {
+      "id": "time",
+      "name": "Past | Present",
+      "left": "in past time",
+      "right": "in present time",
+      "description": "Lineage vs self (ancestral)"
+    },
+    {
+      "id": "becoming",
+      "name": "Where They Are | Where They're Becoming",
+      "left": "where they are",
+      "right": "where they're becoming",
+      "description": "Current vs emerging (developmental)"
+    },
+    {
+      "id": "potential-manifest",
+      "name": "Potential | Manifest",
+      "left": "in potential",
+      "right": "in manifest form",
+      "description": "Imagined vs actualized (creative)"
+    },
+    {
+      "id": "formless",
+      "name": "Form | Formlessness",
+      "left": "in form",
+      "right": "in formlessness",
+      "description": "Manifest vs unmanifest (mystical)"
+    },
+    {
+      "id": "known-unknown",
+      "name": "Known | Unknown",
+      "left": "in the known",
+      "right": "in the unknown",
+      "description": "Observed vs theoretical (scientific)"
+    },
+    {
+      "id": "margins-center",
+      "name": "Margins | Center",
+      "left": "at the margins",
+      "right": "at the center",
+      "description": "Marginalized vs privileged (justice-oriented)"
+    },
+    {
+      "id": "surface-depths",
+      "name": "Surface | Depths",
+      "left": "on the surface",
+      "right": "in the depths",
+      "description": "Distracted vs present (contemplative)"
+    }
+  ]
+}

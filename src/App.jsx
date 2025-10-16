@@ -1,29 +1,32 @@
-import { useState, useEffect } from 'react'
-import LensSelector from './components/LensSelector'
-import QuoteDisplay from './components/QuoteDisplay'
-import PatternMatrix from './components/PatternMatrix'
+import { useEffect, useState } from 'react'
+import FocusSelector from './components/FocusSelector'
+import AxisSelector from './components/AxisSelector'
 import PatternDetail from './components/PatternDetail'
+import PatternMatrix from './components/PatternMatrix'
 import PlanView from './components/PlanView'
-import lensesData from './data/lenses.json'
+import QuoteDisplay from './components/QuoteDisplay'
+import focusesData from './data/focuses.json'
+import axesData from './data/axes.json'
 import patternsData from './data/patterns.json'
 import planData from './data/plan.json'
 
 function App() {
-  const [selectedLens, setSelectedLens] = useState(lensesData.lenses[0])
+  const [selectedFocus, setSelectedFocus] = useState(focusesData.focuses[0])
+  const [selectedAxis, setSelectedAxis] = useState(axesData.axes[0])
   const [selectedPattern, setSelectedPattern] = useState(null)
   const [view, setView] = useState('home') // 'home', 'pattern', 'plan'
 
   // Handle URL parameters for sharing
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    const lensId = params.get('lens')
+    const focusId = params.get('focus')
     const patternId = params.get('pattern')
-    
-    if (lensId) {
-      const lens = lensesData.lenses.find(l => l.id === lensId)
-      if (lens) setSelectedLens(lens)
+
+    if (focusId) {
+      const focus = focusesData.focuses.find(f => f.id === focusId)
+      if (focus) setSelectedFocus(focus)
     }
-    
+
     if (patternId) {
       const pattern = patternsData.patterns.find(p => p.id === parseInt(patternId))
       if (pattern) {
@@ -33,11 +36,11 @@ function App() {
     }
   }, [])
 
-  // Update URL when lens changes
-  const handleLensChange = (lens) => {
-    setSelectedLens(lens)
+  // Update URL when focus changes
+  const handleFocusChange = (focus) => {
+    setSelectedFocus(focus)
     const params = new URLSearchParams(window.location.search)
-    params.set('lens', lens.id)
+    params.set('focus', focus.id)
     window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
   }
 
@@ -63,9 +66,9 @@ function App() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl sm:text-3xl font-bold text-stone-900">
-                4×4 Pattern Explorer
+                The Pattern Behind the Plan
               </h1>
-              <p className="text-sm text-stone-600 mt-1">MM4th Ward | Discover the deeper patterns</p>
+              <p className="text-sm text-stone-600 mt-1">MM4th Ward | Discover the deeper structures</p>
             </div>
             {view !== 'home' && (
               <button
@@ -83,18 +86,27 @@ function App() {
       <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
         {view === 'home' && (
           <div className="space-y-12">
-            {/* Lens Selector */}
+            {/* Focus Selector */}
             <section>
-              <LensSelector
-                lenses={lensesData.lenses}
-                selectedLens={selectedLens}
-                onLensChange={handleLensChange}
+              <FocusSelector
+                focuses={focusesData.focuses}
+                selectedFocus={selectedFocus}
+                onFocusChange={handleFocusChange}
+              />
+            </section>
+
+            {/* Axis Selector */}
+            <section>
+              <AxisSelector
+                axes={axesData.axes}
+                selectedAxis={selectedAxis}
+                onAxisChange={setSelectedAxis}
               />
             </section>
 
             {/* Quote Display */}
             <section>
-              <QuoteDisplay selectedLens={selectedLens} />
+              <QuoteDisplay selectedFocus={selectedFocus} selectedAxis={selectedAxis} />
             </section>
 
             {/* Pattern Matrix */}
@@ -104,7 +116,7 @@ function App() {
                   Explore the 12 Patterns
                 </h2>
                 <p className="text-stone-600 max-w-2xl mx-auto">
-                  These patterns reveal why the 4×4 framework feels so complete. 
+                  These patterns reveal why the 4×4 framework feels so complete.
                   Click any pattern to explore it in depth.
                 </p>
               </div>
@@ -120,7 +132,7 @@ function App() {
                 onClick={handleViewPlan}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-lg hover:bg-stone-800 transition-colors text-lg font-medium"
               >
-                View the 4×4 Plan in This Lens
+                View the 4×4 Plan in This Focus
                 <span>→</span>
               </button>
             </section>
@@ -137,7 +149,7 @@ function App() {
         {view === 'plan' && (
           <PlanView
             plan={planData}
-            selectedLens={selectedLens}
+            selectedFocus={selectedFocus}
             onBack={handleBack}
           />
         )}
@@ -147,10 +159,20 @@ function App() {
       <footer className="bg-white border-t border-stone-200 mt-16">
         <div className="max-w-5xl mx-auto px-4 py-8 text-center text-stone-600 text-sm">
           <p className="mb-2">
-            <em>"Anytime we do anything that helps anyone on either side of the veil..."</em>
+            <em>"Anytime we do anything that helps anyone{' '}
+            {selectedAxis.right ? (
+              <>
+                <span className="font-semibold text-stone-900">{selectedAxis.left}</span>
+                {' '}or{' '}
+                <span className="font-semibold text-stone-900">{selectedAxis.right}</span>
+              </>
+            ) : (
+              <span className="font-semibold text-stone-900">{selectedAxis.left}</span>
+            )}
+            ..."</em>
           </p>
           <p>
-            The pattern lives on both sides. The framework itself is a teacher.
+            The pattern lives across all dimensions. The framework itself is a teacher.
           </p>
         </div>
       </footer>

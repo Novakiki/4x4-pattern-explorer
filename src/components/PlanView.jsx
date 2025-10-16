@@ -1,13 +1,13 @@
-export default function PlanView({ plan, selectedLens }) {
+export default function PlanView({ plan, selectedFocus }) {
   return (
     <div className="space-y-8">
       {/* Header */}
       <div className="text-center">
         <div
           className="inline-block px-4 py-2 rounded-full text-sm font-medium text-white mb-4"
-          style={{ backgroundColor: selectedLens.color }}
+          style={{ backgroundColor: selectedFocus.color }}
         >
-          Viewing through the {selectedLens.name} lens
+          Viewing the matrix through the {selectedFocus.name} focus
         </div>
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">
           MM4th Ward 4×4 Plan
@@ -23,16 +23,16 @@ export default function PlanView({ plan, selectedLens }) {
           "Anytime we do anything that helps anyone on either side of the veil to{' '}
           <span
             className="font-semibold not-italic"
-            style={{ color: selectedLens.color }}
+            style={{ color: selectedFocus.color }}
           >
-            {selectedLens.covenant}
+            {selectedFocus.covenant}
           </span>
           , we are helping to{' '}
           <span
             className="font-semibold not-italic"
-            style={{ color: selectedLens.color }}
+            style={{ color: selectedFocus.color }}
           >
-            {selectedLens.gather}
+            {selectedFocus.gather}
           </span>
           ."
         </blockquote>
@@ -73,8 +73,8 @@ export default function PlanView({ plan, selectedLens }) {
                       {action.action}
                     </span>
                   </div>
-                  
-                  {selectedLens.id !== 'lds' && (
+
+                  {selectedFocus.id !== 'lds' && (
                     <div className="ml-2 pl-4 border-l-2 border-stone-200">
                       <p className="text-xs text-stone-600 italic">
                         → {action.universal}
@@ -94,10 +94,10 @@ export default function PlanView({ plan, selectedLens }) {
           Choose Your Own Goals
         </h2>
         <p className="text-amber-800 text-center mb-6 max-w-2xl mx-auto">
-          Select one meaningful goal from each quadrant—or create your own. 
+          Select one meaningful goal from each quadrant—or create your own.
           The practices that resonate with you are the right ones for this season of your life.
         </p>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
           {plan.quadrants.map((quadrant) => (
             <div key={quadrant.id} className="bg-white rounded-lg p-4 border border-amber-200">

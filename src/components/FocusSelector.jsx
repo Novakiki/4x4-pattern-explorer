@@ -1,28 +1,28 @@
 import { useState } from 'react'
 
-export default function LensSelector({ lenses, selectedLens, onLensChange }) {
+export default function FocusSelector({ focuses, selectedFocus, onFocusChange }) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-stone-200 p-6">
       <label className="block text-sm font-medium text-stone-700 mb-3">
-        Choose Your Lens
+        Choose Your Focus
       </label>
       
       <div className="relative">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="w-full flex items-center justify-between px-4 py-3 bg-stone-50 border-2 border-stone-300 rounded-lg hover:border-stone-400 transition-colors"
-          style={{ borderColor: selectedLens.color }}
+          style={{ borderColor: selectedFocus.color }}
         >
           <div className="flex items-center gap-3">
             <div
               className="w-4 h-4 rounded-full"
-              style={{ backgroundColor: selectedLens.color }}
+              style={{ backgroundColor: selectedFocus.color }}
             />
             <div className="text-left">
-              <div className="font-semibold text-stone-900">{selectedLens.name}</div>
-              <div className="text-sm text-stone-600">{selectedLens.description}</div>
+              <div className="font-semibold text-stone-900">{selectedFocus.name}</div>
+              <div className="text-sm text-stone-600">{selectedFocus.description}</div>
             </div>
           </div>
           <svg
@@ -37,24 +37,24 @@ export default function LensSelector({ lenses, selectedLens, onLensChange }) {
 
         {isOpen && (
           <div className="absolute z-10 w-full mt-2 bg-white border border-stone-200 rounded-lg shadow-lg max-h-96 overflow-y-auto">
-            {lenses.map((lens) => (
+            {focuses.map((focus) => (
               <button
-                key={lens.id}
+                key={focus.id}
                 onClick={() => {
-                  onLensChange(lens)
+                  onFocusChange(focus)
                   setIsOpen(false)
                 }}
                 className="w-full flex items-center gap-3 px-4 py-3 hover:bg-stone-50 transition-colors border-b border-stone-100 last:border-b-0 text-left"
               >
                 <div
                   className="w-4 h-4 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: lens.color }}
+                  style={{ backgroundColor: focus.color }}
                 />
                 <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-stone-900">{lens.name}</div>
-                  <div className="text-sm text-stone-600 line-clamp-1">{lens.description}</div>
+                  <div className="font-semibold text-stone-900">{focus.name}</div>
+                  <div className="text-sm text-stone-600 line-clamp-1">{focus.description}</div>
                 </div>
-                {lens.id === selectedLens.id && (
+                {focus.id === selectedFocus.id && (
                   <svg className="w-5 h-5 text-stone-900" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
@@ -66,7 +66,7 @@ export default function LensSelector({ lenses, selectedLens, onLensChange }) {
       </div>
 
       <p className="mt-4 text-sm text-stone-600">
-        Each lens reveals a different dimension of the same underlying pattern. 
+        Each focus reveals a different dimension of the same underlying pattern.
         Choose one that resonates with where you are right now.
       </p>
     </div>

@@ -1,11 +1,10 @@
 {
-  "lenses": [
+  "focuses": [
     {
       "id": "lds",
       "name": "MM4 ward (original)",
       "covenant": "make & keep their covenants with God",
       "gather": "gather Israel",
-      "veil": "on either side of the veil",
       "color": "#1e40af",
       "description": "The original teaching from President Nelson"
     },
@@ -14,7 +13,6 @@
       "name": "Psychological",
       "covenant": "honor their deepest commitments to wholeness",
       "gather": "heal fragmentation",
-      "veil": "within and beyond awareness",
       "color": "#7c3aed",
       "description": "Understanding through the lens of human development and integration"
     },
@@ -23,7 +21,6 @@
       "name": "Ecological",
       "covenant": "live in sacred relationship with all life",
       "gather": "restore the web",
-      "veil": "in visible and invisible systems",
       "color": "#059669",
       "description": "Seeing through interconnection with all living systems"
     },
@@ -32,7 +29,6 @@
       "name": "Therapeutic",
       "covenant": "keep faith with their authentic self",
       "gather": "mend what's been broken",
-      "veil": "in defended and vulnerable places",
       "color": "#db2777",
       "description": "The healing journey toward authenticity and wholeness"
     },
@@ -41,7 +37,6 @@
       "name": "Philosophical",
       "covenant": "remain true to their highest values",
       "gather": "create beloved community",
-      "veil": "in thought and in practice",
       "color": "#dc2626",
       "description": "Living according to wisdom and virtue"
     },
@@ -50,7 +45,6 @@
       "name": "Ancestral",
       "covenant": "honor their soul's agreements",
       "gather": "reunite what's been scattered",
-      "veil": "in past and present time",
       "color": "#d97706",
       "description": "Connecting with the wisdom and presence of those who came before"
     },
@@ -59,7 +53,6 @@
       "name": "Developmental",
       "covenant": "stay aligned with their becoming",
       "gather": "integrate what's been divided",
-      "veil": "where they are and where they're becoming",
       "color": "#0891b2",
       "description": "The continuous evolution toward greater complexity and wholeness"
     },
@@ -68,7 +61,6 @@
       "name": "Relational",
       "covenant": "nurture sacred bonds",
       "gather": "weave connection",
-      "veil": "in self and in other",
       "color": "#ec4899",
       "description": "The web of relationships that sustain us"
     },
@@ -77,7 +69,6 @@
       "name": "Creative",
       "covenant": "stay true to their vision",
       "gather": "bring forth what wants to emerge",
-      "veil": "in potential and in form",
       "color": "#8b5cf6",
       "description": "Birthing new possibilities into being"
     },
@@ -86,7 +77,6 @@
       "name": "Mystical",
       "covenant": "remember their divine nature",
       "gather": "dissolve separation",
-      "veil": "in form and formlessness",
       "color": "#6366f1",
       "description": "The direct experience of unity consciousness"
     },
@@ -95,7 +85,6 @@
       "name": "Scientific",
       "covenant": "maintain integrity with truth",
       "gather": "increase coherence",
-      "veil": "in the known and the unknown",
       "color": "#0284c7",
       "description": "The pursuit of understanding through rigorous inquiry"
     },
@@ -104,7 +93,6 @@
       "name": "Justice-Oriented",
       "covenant": "uphold dignity and mutual flourishing",
       "gather": "build the world we long for",
-      "veil": "at the margins and at the center",
       "color": "#be123c",
       "description": "Working toward equity, liberation, and collective wellbeing"
     },
@@ -113,7 +101,6 @@
       "name": "Contemplative",
       "covenant": "stay present to what's sacred",
       "gather": "awaken what's always been whole",
-      "veil": "on the surface and in the depths",
       "color": "#475569",
       "description": "The practice of presence and deep awareness"
     }
