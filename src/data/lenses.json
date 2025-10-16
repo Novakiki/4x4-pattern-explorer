@@ -1,0 +1,108 @@
+{
+  "lenses": [
+    {
+      "id": "lds",
+      "name": "LDS (Original)",
+      "covenant": "make & keep their covenants with God",
+      "gather": "gather Israel",
+      "color": "#1e40af",
+      "description": "The original teaching from President Nelson"
+    },
+    {
+      "id": "psychological",
+      "name": "Psychological",
+      "covenant": "honor their deepest commitments to wholeness",
+      "gather": "heal fragmentation",
+      "color": "#7c3aed",
+      "description": "Understanding through the lens of human development and integration"
+    },
+    {
+      "id": "ecological",
+      "name": "Ecological",
+      "covenant": "live in sacred relationship with all life",
+      "gather": "restore the web",
+      "color": "#059669",
+      "description": "Seeing through interconnection with all living systems"
+    },
+    {
+      "id": "therapeutic",
+      "name": "Therapeutic",
+      "covenant": "keep faith with their authentic self",
+      "gather": "mend what's been broken",
+      "color": "#db2777",
+      "description": "The healing journey toward authenticity and wholeness"
+    },
+    {
+      "id": "philosophical",
+      "name": "Philosophical",
+      "covenant": "remain true to their highest values",
+      "gather": "create beloved community",
+      "color": "#dc2626",
+      "description": "Living according to wisdom and virtue"
+    },
+    {
+      "id": "ancestral",
+      "name": "Ancestral",
+      "covenant": "honor their soul's agreements",
+      "gather": "reunite what's been scattered",
+      "color": "#d97706",
+      "description": "Connecting with the wisdom and presence of those who came before"
+    },
+    {
+      "id": "developmental",
+      "name": "Developmental",
+      "covenant": "stay aligned with their becoming",
+      "gather": "integrate what's been divided",
+      "color": "#0891b2",
+      "description": "The continuous evolution toward greater complexity and wholeness"
+    },
+    {
+      "id": "relational",
+      "name": "Relational",
+      "covenant": "nurture sacred bonds",
+      "gather": "weave connection",
+      "color": "#ec4899",
+      "description": "The web of relationships that sustain us"
+    },
+    {
+      "id": "creative",
+      "name": "Creative",
+      "covenant": "stay true to their vision",
+      "gather": "bring forth what wants to emerge",
+      "color": "#8b5cf6",
+      "description": "Birthing new possibilities into being"
+    },
+    {
+      "id": "mystical",
+      "name": "Mystical",
+      "covenant": "remember their divine nature",
+      "gather": "dissolve separation",
+      "color": "#6366f1",
+      "description": "The direct experience of unity consciousness"
+    },
+    {
+      "id": "scientific",
+      "name": "Scientific",
+      "covenant": "maintain integrity with truth",
+      "gather": "increase coherence",
+      "color": "#0284c7",
+      "description": "The pursuit of understanding through rigorous inquiry"
+    },
+    {
+      "id": "justice",
+      "name": "Justice-Oriented",
+      "covenant": "uphold dignity and mutual flourishing",
+      "gather": "build the world we long for",
+      "color": "#be123c",
+      "description": "Working toward equity, liberation, and collective wellbeing"
+    },
+    {
+      "id": "contemplative",
+      "name": "Contemplative",
+      "covenant": "stay present to what's sacred",
+      "gather": "awaken what's always been whole",
+      "color": "#475569",
+      "description": "The practice of presence and deep awareness"
+    }
+  ]
+}
