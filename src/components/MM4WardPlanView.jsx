@@ -10,7 +10,7 @@ const INQUIRY_COLORS = {
   shift: { dot: 'text-amber-400', text: 'text-amber-700' }           // Transformation, illumination
 }
 
-export default function PlanView({ plan, selectedLens }) {
+export default function MM4WardPlanView({ plan, selectedLens }) {
   const [showPerspectives, setShowPerspectives] = useState(false)
   const [showExplanation, setShowExplanation] = useState(false)
 
@@ -229,7 +229,7 @@ export default function PlanView({ plan, selectedLens }) {
   )
 }
 
-PlanView.propTypes = {
+MM4WardPlanView.propTypes = {
   plan: PropTypes.shape({
     quadrants: PropTypes.arrayOf(
       PropTypes.shape({

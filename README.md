@@ -1,199 +1,156 @@
-# 4×4 Pattern Explorer
+# Meta-Matrix: Universal Patterns Made Personal
 
-An interactive web application for exploring the MM4th Ward 4×4 Plan through 12 different lenses and patterns.
+An interactive framework for exploring 16 fundamental cognitive operations through 13 different cultural, philosophical, and spiritual lenses.
 
-## 🌟 Features
+## 🎯 What This Is
 
-- **13 Lens Perspectives**: View the framework through LDS, Psychological, Ecological, Therapeutic, Philosophical, Ancestral, Developmental, Relational, Creative, Mystical, Scientific, Justice-Oriented, and Contemplative lenses
-- **12 Deep Patterns**: Explore the underlying patterns that make the 4×4 framework complete
-- **Interactive Experience**: Click through patterns, switch lenses, and see the plan transform
-- **Shareable URLs**: Share specific lens views or patterns with others
-- **Mobile-Responsive**: Beautiful on all devices
-- **Fast & Lightweight**: Built with React + Vite for optimal performance
+The Meta-Matrix reveals universal patterns in how humans think, observe, question, remember, and imagine. These patterns appear across all wisdom traditions, spiritual practices, scientific frameworks, and philosophical systems - but are usually trapped within specific cultural contexts.
 
-## 🚀 Quick Start
+This app liberates those patterns. Users can:
+- Explore 16 cognitive operations through their preferred lens (Buddhist, Scientific, Ecological, LDS, etc.)
+- See how the same fundamental patterns manifest differently across frameworks
+- Use the **Boundary Card** feature to examine and update limiting beliefs
+- Discover connections between operations through an interactive matrix
 
-### Prerequisites
+### Origin Story
 
-- Node.js 18+ and npm
+This project emerged from a Mormon ward's "4x4 Plan" (Mission, Temple, Family History, Invite). While effective, it was culturally specific. This app extracts the underlying cognitive patterns and makes them universally accessible - not by removing the LDS perspective, but by showing how it's one expression of patterns that exist everywhere.
 
-### Local Development
+## 🏗️ Architecture
 
-1. **Clone and install:**
-```bash
-cd 4x4_matrix
-npm install
+```
+src/
+├── components/
+│   ├── boundary/           # Boundary Card system
+│   │   ├── BoundaryCard.jsx
+│   │   └── BoundaryCardSections.jsx
+│   ├── matrix/            # Core matrix components
+│   │   ├── MetaMatrix.jsx
+│   │   └── OperationDetailModal.jsx
+│   ├── patterns/          # Pattern exploration
+│   │   ├── PatternMatrix.jsx
+│   │   └── PatternDetail.jsx
+│   ├── selectors/         # Lens/orientation selectors
+│   │   ├── FocusSelector.jsx
+│   │   └── MetaphorSelector.jsx
+│   └── plan/             # 4x4 Plan specific views
+│       ├── PlanView.jsx
+│       └── QuoteDisplay.jsx
+├── data/
+│   ├── lenses.json        # 13 cultural/philosophical lenses
+│   ├── operationsData.js  # 16 operations + lens examples
+│   ├── patterns.json      # 12 universal patterns
+│   └── boundaryContent.js # Boundary Card flow definitions
+└── App.jsx
 ```
 
-2. **Run development server:**
+## 🧠 Core Concepts
+
+### The 4x4 Matrix
+- **4 verbs**: OBSERVE, ASK, REMEMBER, IMAGINE
+- **Combined**: Each verb intersects with itself and the other three
+- **Result**: 16 unique cognitive operations (e.g., "Observe × Ask" = Questioning)
+
+### 13 Lenses
+Each operation can be viewed through different frameworks:
+- LDS (Latter-day Saint)
+- Buddhist
+- Scientific
+- Psychological
+- Ecological
+- Mystical
+- Philosophical
+- Artistic
+- Social Justice
+- Indigenous
+- Technological
+- Somatic
+- Secular Humanist
+
+### Boundary Card (Vertical Practice)
+While the matrix explores concepts horizontally, the Boundary Card takes you vertical - into embodied practice. It's an 8-step guided journey:
+1. Name a belief
+2. Identify its origins
+3. Assess its permeability (rigid/semi-permeable/slippery)
+4. Check if it's serving you
+5. Place it (edge/core/middle of identity)
+6. Design an experiment
+7. Breath practice
+8. Review and integrate
+
+See `BOUNDARY-CARD-VISION.md` for complete documentation.
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+
+### Installation
 ```bash
+npm install
 npm run dev
 ```
 
-3. **Open in browser:**
-Navigate to `http://localhost:5173`
+### Key Dependencies
+- React 18
+- Vite
+- Tailwind CSS
 
-### Build for Production
+## 📖 Documentation
 
-```bash
-npm run build
-```
+- `BOUNDARY-CARD-VISION.md` - Complete conceptual framework for Boundary Card
+- `BOUNDARY-CARD-QUICK-REF.md` - 30-second overview for quick onboarding
+- `BOUNDARY-CARD-TECH-SPEC.md` - Implementation guide with code examples
+- `WHY-THIS-EXISTS.md` - Origin story and philosophy
+- `USER-GUIDE.md` - User-facing documentation
 
-This creates optimized files in the `dist/` directory.
+## 🎨 Design Principles
 
-### Preview Production Build
+1. **Lens-neutral by default** - No single worldview is privileged
+2. **Subtle, not showy** - Gentle animations, warm earth tones
+3. **Membrane metaphor** - Beliefs are boundaries with different permeabilities
+4. **Local-first** - User data stays on their device
+5. **Progressive disclosure** - Show what's needed when it's needed
 
-```bash
-npm run preview
-```
+## 🔮 Vision & Roadmap
 
-## 🚂 Deploy to Railway
+### Current State
+- ✅ 16-operation matrix with hover states
+- ✅ 13-lens system
+- ✅ Operation detail modals
+- ✅ Boundary Card flow (8 steps)
+- ✅ 12 universal patterns
 
-### Method 1: GitHub Integration (Recommended)
+### Near-term
+- [ ] Boundary Card data persistence (localStorage)
+- [ ] Archive/history view for completed cards
+- [ ] Reminder system for experiments
+- [ ] Export/share functionality
 
-1. **Push to GitHub:**
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin <your-repo-url>
-git push -u origin main
-```
+### Long-term
+- [ ] Mobile app
+- [ ] Community patterns library
+- [ ] Guided journeys (curated paths through operations)
+- [ ] Integration with calendar/habit tracking
 
-2. **Deploy on Railway:**
-   - Go to [railway.app](https://railway.app)
-   - Click "New Project"
-   - Select "Deploy from GitHub repo"
-   - Choose your repository
-   - Railway will automatically detect the configuration and deploy
+## 🤝 Contributing
 
-### Method 2: Railway CLI
+This is currently a personal project, but contributions that align with the vision are welcome. Key principles:
 
-1. **Install Railway CLI:**
-```bash
-npm install -g @railway/cli
-```
+1. **Respect all lenses** - Never privilege one worldview over another
+2. **Accessible language** - Avoid academic jargon
+3. **Privacy-first** - User data is sacred
+4. **Beauty matters** - Design is part of the message
 
-2. **Login and deploy:**
-```bash
-railway login
-railway init
-railway up
-```
+## 📜 License
 
-### Environment Variables
-
-No environment variables are required! The app is fully self-contained.
-
-## 📱 Generating QR Code
-
-Once deployed, you can generate a QR code for your Railway URL:
-
-**Online Tools:**
-- [QR Code Generator](https://www.qr-code-generator.com/)
-- [QRCode Monkey](https://www.qrcode-monkey.com/)
-
-**Or use this npm package:**
-```bash
-npm install -g qrcode-terminal
-qrcode-terminal <your-railway-url>
-```
-
-## 🎨 Customization
-
-### Adding New Lenses
-
-Edit `src/data/lenses.json`:
-
-```json
-{
-  "id": "your-lens-id",
-  "name": "Your Lens Name",
-  "covenant": "custom covenant phrase",
-  "gather": "custom gathering phrase",
-  "color": "#hexcolor",
-  "description": "Brief description"
-}
-```
-
-### Adding New Patterns
-
-Edit `src/data/patterns.json` to add more patterns.
-
-### Styling
-
-- Colors and theme: `tailwind.config.js`
-- Global styles: `src/index.css`
-- Component-specific styles: inline Tailwind classes
-
-## 📂 Project Structure
-
-```
-4x4_matrix/
-├── src/
-│   ├── components/          # React components
-│   │   ├── LensSelector.jsx
-│   │   ├── QuoteDisplay.jsx
-│   │   ├── PatternMatrix.jsx
-│   │   ├── PatternDetail.jsx
-│   │   ├── PlanView.jsx
-│   │   ├── MetaMatrix.jsx
-│   │   ├── BoundaryCard.jsx
-│   │   └── ...
-│   ├── data/               # Data files
-│   │   ├── lenses.json          # Pure data (editable)
-│   │   ├── patterns.json        # Pure data (editable)
-│   │   ├── operationsData.js    # Operations + plan data
-│   │   ├── boundaryContent.js   # Boundary card content
-│   │   └── matrixUtils.js       # Utility functions
-│   ├── App.jsx             # Main app component
-│   ├── main.jsx            # Entry point
-│   └── index.css           # Global styles
-├── public/                 # Static assets
-├── index.html              # HTML template
-├── vite.config.js          # Vite configuration
-├── tailwind.config.js      # Tailwind configuration
-├── railway.json            # Railway deployment config
-└── package.json            # Dependencies
-```
-
-## 🔗 URL Parameters
-
-Share specific views using URL parameters:
-
-- `?lens=psychological` - Opens with a specific lens selected
-- `?pattern=3` - Opens directly to pattern #3
-- `?lens=mystical&pattern=7` - Combines both
-
-## 🐛 Troubleshooting
-
-### Build fails on Railway
-
-Make sure your `railway.json` is configured correctly. Railway should automatically detect the Vite project.
-
-### Styles not loading
-
-Ensure Tailwind is properly configured and `npm install` completed successfully.
-
-### Data not showing
-
-Check that all JSON files in `src/data/` are valid JSON (no trailing commas, proper quotes).
-
-## 📝 License
-
-This project is created for the MM4th Ward community.
+[Choose your license - MIT recommended for open source]
 
 ## 🙏 Acknowledgments
 
-- Inspired by President Russell M. Nelson's teaching on gathering Israel
-- Framework developed by the MM4th Ward leadership
-- Deeper patterns discovered through contemplative study
-
-## 💬 Support
-
-For questions or issues, contact your ward leadership or the project maintainer.
+Inspired by President Russell M. Nelson's teaching on covenant-keeping and gathering, and the recognition that universal patterns deserve universal access.
 
 ---
 
-**Remember:** The pattern itself is what's sacred, not any particular practice. 
-Choose what resonates with where you are right now.
+**Questions?** See `WHY-THIS-EXISTS.md` for the philosophical foundation, or `USER-GUIDE.md` for how people actually use this.

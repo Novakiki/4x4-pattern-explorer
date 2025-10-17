@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import LensSelector from './components/LensSelector'
 import PatternDetail from './components/PatternDetail'
 import PatternMatrix from './components/PatternMatrix'
-import PlanView from './components/PlanView'
+import MM4WardPlanView from './components/MM4WardPlanView'
 import QuoteDisplay from './components/QuoteDisplay'
 import MetaMatrix from './components/MetaMatrix'
 import lensesData from './data/lenses.json'
@@ -125,7 +125,7 @@ function App() {
 
             {/* 4x4 Plan */}
             <section>
-              <PlanView
+              <MM4WardPlanView
                 plan={planData}
                 selectedLens={selectedLens}
               />

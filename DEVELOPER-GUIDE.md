@@ -62,8 +62,8 @@ An interactive web application that helps users explore the MM4 Ward 4×4 Plan t
 ├── DEPLOYMENT-GUIDE.md                  # How to deploy to production
 ├── TEST-CHECKLIST.md                    # Testing procedures
 ├── README.md                            # Technical reference
-├── META-MATRIX-CONCEPT.md               # Meta-Matrix concept documentation
-└── META-MATRIX-MM4-MAPPING.md           # MM4 → operations mapping
+├── METAMATRIX-16-OPERATIONS.md          # The 16 cognitive operations
+└── MM4-WARD-PLAN-MAPPING.md             # MM4 → operations mapping
 ```
 
 ---
@@ -479,8 +479,8 @@ Verify `id` in `patterns.json` is unique and matches references in `highlightPat
 - **DEPLOYMENT-GUIDE.md** - How to deploy to production
 - **TEST-CHECKLIST.md** - Testing procedures
 - **README.md** - Technical quickstart
-- **META-MATRIX-CONCEPT.md** - Deep dive into the Meta-Matrix concept
-- **META-MATRIX-MM4-MAPPING.md** - How MM4 plan maps to 16 operations
+- **METAMATRIX-16-OPERATIONS.md** - The 16 cognitive operations theory
+- **MM4-WARD-PLAN-MAPPING.md** - How MM4 plan maps to 16 operations
 
 ---
 
@@ -531,7 +531,7 @@ Refer to:
 1. This guide for architecture and data model
 2. `DEPLOYMENT-GUIDE.md` for deployment
 3. `TEST-CHECKLIST.md` for testing
-4. `META-MATRIX-CONCEPT.md` for conceptual background
+4. `METAMATRIX-16-OPERATIONS.md` for conceptual background
 5. Source code comments for implementation details
 
 The codebase is designed to be simple and maintainable. Most changes only require editing JSON data files.

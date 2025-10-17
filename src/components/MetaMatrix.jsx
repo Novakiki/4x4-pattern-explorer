@@ -20,7 +20,7 @@ export default function MetaMatrix({ selectedLens }) {
     return hoveredRow === rowIdx || hoveredCol === colIdx
   }
 
-  const openOperation = (key, { updateHistory = true } = {}) => {
+  const openOperationModal = (key, { updateHistory = true } = {}) => {
     const data = operationsData.operations[key]
     if (!data) return
     const [row, col] = key.split('-')
@@ -41,7 +41,7 @@ export default function MetaMatrix({ selectedLens }) {
     }
   }
 
-  const closeOperation = ({ updateHistory = true } = {}) => {
+  const closeOperationModal = ({ updateHistory = true } = {}) => {
     setSelectedCell(null)
 
     if (updateHistory) {
@@ -55,15 +55,15 @@ export default function MetaMatrix({ selectedLens }) {
 
   const handleCellClick = (row, col) => {
     const key = getCellKey(row, col)
-    openOperation(key)
+    openOperationModal(key)
   }
 
   const handleConnectedOperationSelect = (operationKey) => {
-    openOperation(operationKey)
+    openOperationModal(operationKey)
   }
 
   useEffect(() => {
-    const syncFromUrl = () => {
+    const syncOperationSelectionFromUrl = () => {
       const params = new URLSearchParams(window.location.search)
       const key = params.get('operation')
 
@@ -84,11 +84,11 @@ export default function MetaMatrix({ selectedLens }) {
       })
     }
 
-    window.addEventListener('popstate', syncFromUrl)
-    syncFromUrl()
+    window.addEventListener('popstate', syncOperationSelectionFromUrl)
+    syncOperationSelectionFromUrl()
 
     return () => {
-      window.removeEventListener('popstate', syncFromUrl)
+      window.removeEventListener('popstate', syncOperationSelectionFromUrl)
     }
   }, [])
 
@@ -263,7 +263,7 @@ export default function MetaMatrix({ selectedLens }) {
           operation={selectedCell.data}
           rowVerb={selectedCell.row}
           colVerb={selectedCell.col}
-          onClose={() => closeOperation()}
+          onClose={() => closeOperationModal()}
           onSelectOperation={handleConnectedOperationSelect}
         />
       )}
