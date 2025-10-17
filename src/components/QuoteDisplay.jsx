@@ -1,4 +1,4 @@
-export default function QuoteDisplay({ selectedFocus, selectedAxis }) {
+export default function QuoteDisplay({ selectedFocus }) {
   return (
     <div className="bg-white rounded-xl shadow-lg border border-stone-200 p-8 sm:p-12">
       <div className="max-w-3xl mx-auto">
@@ -11,21 +11,13 @@ export default function QuoteDisplay({ selectedFocus, selectedAxis }) {
           </div>
         </div>
 
-        <blockquote className="font-serif text-lg sm:text-xl md:text-2xl leading-relaxed text-stone-800">
+        <blockquote className="font-serif text-lg sm:text-xl md:text-2xl leading-loose text-stone-800">
           <p className="italic">
             "Anytime we do anything that helps anyone{' '}
-            {selectedAxis.right ? (
-              <>
-                <span className="font-semibold not-italic text-stone-900">{selectedAxis.left}</span>
-                {' '}or{' '}
-                <span className="font-semibold not-italic text-stone-900">{selectedAxis.right}</span>
-              </>
-            ) : (
-              <span className="font-semibold not-italic text-stone-900">{selectedAxis.left}</span>
-            )}
-            {' '}to{' '}
+            <span className="font-semibold not-italic text-stone-900 whitespace-nowrap">on either side of the veil</span>{' '}
+            to{' '}
             <span
-              className="font-semibold not-italic px-2 py-1 rounded"
+              className="font-semibold not-italic px-2 py-1 rounded inline-block my-1"
               style={{
                 backgroundColor: selectedFocus.color + '20',
                 color: selectedFocus.color
@@ -35,7 +27,7 @@ export default function QuoteDisplay({ selectedFocus, selectedAxis }) {
             </span>
             , we are helping to{' '}
             <span
-              className="font-semibold not-italic px-2 py-1 rounded"
+              className="font-semibold not-italic px-2 py-1 rounded inline-block my-1"
               style={{
                 backgroundColor: selectedFocus.color + '20',
                 color: selectedFocus.color
@@ -54,22 +46,14 @@ export default function QuoteDisplay({ selectedFocus, selectedAxis }) {
           )}
         </footer>
 
-        <div className="mt-8 pt-8 border-t border-stone-200">
-          <p className="text-stone-600 text-sm leading-relaxed">
-            {selectedFocus.id === 'lds' ? (
-              <>
-                This is President Nelson's original teaching. The phrase{' '}
-                <span className="font-semibold">"{selectedAxis.left}{selectedAxis.right ? ` or ${selectedAxis.right}` : ''}"</span>
-                {' '}invites us to see reality across multiple dimensions. Use the Axis selector above to explore different polarities.
-              </>
-            ) : (
-              <>
-                The same pattern expressed through a different vocabulary. The invitation remains the same:
-                honor what's sacred, work toward wholeness. Different words, same truth. Use the Axis selector to explore different dimensions.
-              </>
-            )}
-          </p>
-        </div>
+        {selectedFocus.id !== 'lds' && (
+          <div className="mt-8 pt-8 border-t border-stone-200">
+            <p className="text-stone-600 text-sm leading-relaxed">
+              The same truth, translated. Each lens illuminates a different facet of wholeness,
+              helping different people recognize the same invitation.
+            </p>
+          </div>
+        )}
       </div>
     </div>
   )

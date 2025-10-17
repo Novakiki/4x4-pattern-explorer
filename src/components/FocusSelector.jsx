@@ -65,10 +65,17 @@ export default function FocusSelector({ focuses, selectedFocus, onFocusChange })
         )}
       </div>
 
-      <p className="mt-4 text-sm text-stone-600">
-        Each focus reveals a different dimension of the same underlying pattern.
-        Choose one that resonates with where you are right now.
-      </p>
+      {selectedFocus.id === 'lds' && (
+        <div className="mt-4 pt-4 border-t border-stone-200">
+          <h3 className="font-semibold text-stone-900 mb-2 text-sm">Why so many lenses?</h3>
+          <p className="text-stone-600 text-xs leading-relaxed">
+            President Nelson's teaching contains universal wisdom. These lenses help different
+            people discover that wisdom through their own framework—whether they're drawn to
+            religious, scientific, psychological, ecological, mystical, or other perspectives.
+            The core pattern remains the same. The gospel is for everyone.
+          </p>
+        </div>
+      )}
     </div>
   )
 }

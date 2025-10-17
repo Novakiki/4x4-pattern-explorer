@@ -7,7 +7,8 @@
       "gather": "gather Israel",
       "veil": "on either side of the veil",
       "color": "#1e40af",
-      "description": "The original teaching from President Nelson"
+      "description": "The original teaching from President Nelson",
+      "highlightPatterns": []
     },
     {
       "id": "psychological",
@@ -16,7 +17,8 @@
       "gather": "heal fragmentation",
       "veil": "within and beyond awareness",
       "color": "#7c3aed",
-      "description": "Understanding through the lens of human development and integration"
+      "description": "Understanding through the lens of human development and integration",
+      "highlightPatterns": [7, 8, 11]
     },
     {
       "id": "ecological",
@@ -25,7 +27,8 @@
       "gather": "restore the web",
       "veil": "in visible and invisible systems",
       "color": "#059669",
-      "description": "Seeing through interconnection with all living systems"
+      "description": "Seeing through interconnection with all living systems",
+      "highlightPatterns": [2, 5, 10]
     },
     {
       "id": "therapeutic",
@@ -34,7 +37,8 @@
       "gather": "mend what's been broken",
       "veil": "in defended and vulnerable places",
       "color": "#db2777",
-      "description": "The healing journey toward authenticity and wholeness"
+      "description": "The healing journey toward authenticity and wholeness",
+      "highlightPatterns": [6, 8, 12]
     },
     {
       "id": "philosophical",
@@ -43,7 +47,8 @@
       "gather": "create beloved community",
       "veil": "in thought and in practice",
       "color": "#dc2626",
-      "description": "Living according to wisdom and virtue"
+      "description": "Living according to wisdom and virtue",
+      "highlightPatterns": [2, 4, 11]
     },
     {
       "id": "ancestral",
@@ -52,7 +57,8 @@
       "gather": "reunite what's been scattered",
       "veil": "in past and present time",
       "color": "#d97706",
-      "description": "Connecting with the wisdom and presence of those who came before"
+      "description": "Connecting with the wisdom and presence of those who came before",
+      "highlightPatterns": [1, 3, 5]
     },
     {
       "id": "developmental",
@@ -61,7 +67,8 @@
       "gather": "integrate what's been divided",
       "veil": "where they are and where they're becoming",
       "color": "#0891b2",
-      "description": "The continuous evolution toward greater complexity and wholeness"
+      "description": "The continuous evolution toward greater complexity and wholeness",
+      "highlightPatterns": [6, 8, 10]
     },
     {
       "id": "relational",
@@ -70,7 +77,8 @@
       "gather": "weave connection",
       "veil": "in self and in other",
       "color": "#ec4899",
-      "description": "The web of relationships that sustain us"
+      "description": "The web of relationships that sustain us",
+      "highlightPatterns": [3, 6, 12]
     },
     {
       "id": "creative",
@@ -79,7 +87,8 @@
       "gather": "bring forth what wants to emerge",
       "veil": "in potential and in form",
       "color": "#8b5cf6",
-      "description": "Birthing new possibilities into being"
+      "description": "Birthing new possibilities into being",
+      "highlightPatterns": [8, 10, 12]
     },
     {
       "id": "mystical",
@@ -88,7 +97,8 @@
       "gather": "dissolve separation",
       "veil": "in form and formlessness",
       "color": "#6366f1",
-      "description": "The direct experience of unity consciousness"
+      "description": "The direct experience of unity consciousness",
+      "highlightPatterns": [8, 9, 12]
     },
     {
       "id": "scientific",
@@ -97,7 +107,8 @@
       "gather": "increase coherence",
       "veil": "in the known and the unknown",
       "color": "#0284c7",
-      "description": "The pursuit of understanding through rigorous inquiry"
+      "description": "The pursuit of understanding through rigorous inquiry",
+      "highlightPatterns": [2, 4, 11]
     },
     {
       "id": "justice",
@@ -106,7 +117,8 @@
       "gather": "build the world we long for",
       "veil": "at the margins and at the center",
       "color": "#be123c",
-      "description": "Working toward equity, liberation, and collective wellbeing"
+      "description": "Working toward equity, liberation, and collective wellbeing",
+      "highlightPatterns": [2, 3, 5]
     },
     {
       "id": "contemplative",
@@ -115,7 +127,8 @@
       "gather": "awaken what's always been whole",
       "veil": "on the surface and in the depths",
       "color": "#475569",
-      "description": "The practice of presence and deep awareness"
+      "description": "The practice of presence and deep awareness",
+      "highlightPatterns": [6, 7, 9]
     }
   ]
 }

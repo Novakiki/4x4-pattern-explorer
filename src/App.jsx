@@ -1,33 +1,34 @@
 import { useEffect, useState } from 'react'
 import FocusSelector from './components/FocusSelector'
-import AxisSelector from './components/AxisSelector'
 import PatternDetail from './components/PatternDetail'
 import PatternMatrix from './components/PatternMatrix'
 import PlanView from './components/PlanView'
 import QuoteDisplay from './components/QuoteDisplay'
-import focusesData from './data/focuses.json'
-import axesData from './data/axes.json'
+import MetaMatrix from './components/MetaMatrix'
+import lensesData from './data/lenses.json'
 import patternsData from './data/patterns.json'
-import planData from './data/plan.json'
+import { operationsData, planData } from './data/operationsData'
 
 function App() {
-  const [selectedFocus, setSelectedFocus] = useState(focusesData.focuses[0])
-  const [selectedAxis, setSelectedAxis] = useState(axesData.axes[0])
+  const [selectedFocus, setSelectedFocus] = useState(lensesData.lenses[0])
   const [selectedPattern, setSelectedPattern] = useState(null)
-  const [view, setView] = useState('home') // 'home', 'pattern', 'plan'
+  const [view, setView] = useState('home') // 'home', 'pattern', 'matrix'
 
   // Handle URL parameters for sharing
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
     const focusId = params.get('focus')
+    const operationKey = params.get('operation')
     const patternId = params.get('pattern')
 
     if (focusId) {
-      const focus = focusesData.focuses.find(f => f.id === focusId)
+      const focus = lensesData.lenses.find(f => f.id === focusId)
       if (focus) setSelectedFocus(focus)
     }
 
-    if (patternId) {
+    if (operationKey && operationsData.operations[operationKey]) {
+      setView('matrix')
+    } else if (patternId) {
       const pattern = patternsData.patterns.find(p => p.id === parseInt(patternId))
       if (pattern) {
         setSelectedPattern(pattern)
@@ -50,8 +51,20 @@ function App() {
   }
 
   const handleBack = () => {
+    const previousView = view
     setView('home')
     setSelectedPattern(null)
+
+    const params = new URLSearchParams(window.location.search)
+    if (previousView === 'pattern') {
+      params.delete('pattern')
+    }
+    if (previousView === 'matrix') {
+      params.delete('operation')
+    }
+    const search = params.toString()
+    const newUrl = `${window.location.pathname}${search ? `?${search}` : ''}`
+    window.history.replaceState({}, '', newUrl)
   }
 
   const handleViewPlan = () => {
@@ -70,14 +83,24 @@ function App() {
               </h1>
               <p className="text-sm text-stone-600 mt-1">MM4th Ward | Discover the deeper structures</p>
             </div>
-            {view !== 'home' && (
-              <button
-                onClick={handleBack}
-                className="text-stone-600 hover:text-stone-900 transition-colors"
-              >
-                ← Back
-              </button>
-            )}
+            <div className="flex gap-4 items-center">
+              {view === 'home' && (
+                <button
+                  onClick={() => setView('matrix')}
+                  className="text-sm text-stone-600 hover:text-stone-900 transition-colors font-medium"
+                >
+                  Explore Meta-Matrix →
+                </button>
+              )}
+              {view !== 'home' && (
+                <button
+                  onClick={handleBack}
+                  className="text-stone-600 hover:text-stone-900 transition-colors"
+                >
+                  ← Back
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </header>
@@ -89,24 +112,23 @@ function App() {
             {/* Focus Selector */}
             <section>
               <FocusSelector
-                focuses={focusesData.focuses}
+                focuses={lensesData.lenses}
                 selectedFocus={selectedFocus}
                 onFocusChange={handleFocusChange}
               />
             </section>
 
-            {/* Axis Selector */}
-            <section>
-              <AxisSelector
-                axes={axesData.axes}
-                selectedAxis={selectedAxis}
-                onAxisChange={setSelectedAxis}
-              />
-            </section>
-
             {/* Quote Display */}
             <section>
-              <QuoteDisplay selectedFocus={selectedFocus} selectedAxis={selectedAxis} />
+              <QuoteDisplay selectedFocus={selectedFocus} />
+            </section>
+
+            {/* 4x4 Plan */}
+            <section>
+              <PlanView
+                plan={planData}
+                selectedFocus={selectedFocus}
+              />
             </section>
 
             {/* Pattern Matrix */}
@@ -123,18 +145,8 @@ function App() {
               <PatternMatrix
                 patterns={patternsData.patterns}
                 onPatternClick={handlePatternClick}
+                highlightedPatternIds={selectedFocus.highlightPatterns ?? []}
               />
-            </section>
-
-            {/* View Plan Button */}
-            <section className="text-center">
-              <button
-                onClick={handleViewPlan}
-                className="inline-flex items-center gap-2 px-8 py-4 bg-stone-900 text-white rounded-lg hover:bg-stone-800 transition-colors text-lg font-medium"
-              >
-                View the 4×4 Plan in This Focus
-                <span>→</span>
-              </button>
             </section>
           </div>
         )}
@@ -146,11 +158,11 @@ function App() {
           />
         )}
 
-        {view === 'plan' && (
-          <PlanView
-            plan={planData}
+        {view === 'matrix' && (
+          <MetaMatrix 
             selectedFocus={selectedFocus}
-            onBack={handleBack}
+            onFocusChange={handleFocusChange}
+            allFocuses={lensesData.lenses}
           />
         )}
       </main>
@@ -159,17 +171,7 @@ function App() {
       <footer className="bg-white border-t border-stone-200 mt-16">
         <div className="max-w-5xl mx-auto px-4 py-8 text-center text-stone-600 text-sm">
           <p className="mb-2">
-            <em>"Anytime we do anything that helps anyone{' '}
-            {selectedAxis.right ? (
-              <>
-                <span className="font-semibold text-stone-900">{selectedAxis.left}</span>
-                {' '}or{' '}
-                <span className="font-semibold text-stone-900">{selectedAxis.right}</span>
-              </>
-            ) : (
-              <span className="font-semibold text-stone-900">{selectedAxis.left}</span>
-            )}
-            ..."</em>
+            <em>"Anytime we do anything that helps anyone on either side of the veil..."</em>
           </p>
           <p>
             The pattern lives across all dimensions. The framework itself is a teacher.
