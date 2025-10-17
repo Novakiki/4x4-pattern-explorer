@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export default function PatternMatrix({
   patterns,
   onPatternClick,
@@ -51,4 +53,17 @@ export default function PatternMatrix({
       ))}
     </div>
   )
+}
+
+PatternMatrix.propTypes = {
+  patterns: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  onPatternClick: PropTypes.func.isRequired,
+  highlightedPatternIds: PropTypes.arrayOf(PropTypes.number)
 }

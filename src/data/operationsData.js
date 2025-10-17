@@ -1,8 +1,31 @@
+/**
+ * Operations Data - The 16 Fundamental Cognitive Operations
+ *
+ * This file defines all 16 operations in the Meta-Matrix, plus the MM4 Ward plan data.
+ * Each operation is formed by combining two of the 4 base verbs (OBSERVE, ASK, REMEMBER, IMAGINE).
+ *
+ * The raw data is processed by matrixUtils functions to add computed fields and validate integrity.
+ *
+ * @module operationsData
+ */
+
 import { normalizeOperationsData, validateOperationsData, createPlanData, flows } from './matrixUtils'
 
-// The 16 fundamental cognitive operations with complete descriptions
-// Each operation is a combination of two base verbs: OBSERVE, ASK, REMEMBER, IMAGINE
-
+/**
+ * Raw operations data structure.
+ * Contains all 16 operations with their descriptions, lens examples, MM4 mappings, and connections.
+ *
+ * Each operation includes:
+ * - name: The operation name (e.g., "WITNESS", "INQUIRE")
+ * - description: Brief description
+ * - essence: Deeper explanation of what the operation means
+ * - inquiry: A contemplative question related to the operation
+ * - relatedPatterns: Array of pattern IDs (1-12) that relate to this operation
+ * - connectedOperations: Names of operations that connect to this one
+ * - mm4Example: How this operation appears in the MM4 Ward plan
+ * - focusStatements: Inward/outward/still perspectives on this operation
+ * - lensExamples: How this operation manifests through each of the 13 lenses
+ */
 const rawOperationsData = {
   rows: ['OBSERVE', 'ASK', 'REMEMBER', 'IMAGINE'],
   cols: ['OBSERVE', 'ASK', 'REMEMBER', 'IMAGINE'],
@@ -538,8 +561,18 @@ const rawOperationsData = {
   }
 }
 
+/**
+ * Normalized and enriched operations data.
+ * This is the main export - use this in components, not rawOperationsData.
+ * @type {Object}
+ */
 export const operationsData = normalizeOperationsData(rawOperationsData)
 
+/**
+ * Validation issues found in the operations data.
+ * Warnings are logged in development mode.
+ * @type {Array<string>}
+ */
 const validationIssues = validateOperationsData(operationsData)
 export const matrixValidationIssues = validationIssues
 
@@ -553,14 +586,28 @@ if (!isProduction && typeof process !== 'undefined' && process.env && process.en
   isProduction = true
 }
 
+// Log validation warnings in development
 if (validationIssues.length && !isProduction) {
   console.warn(
     'Matrix validation issues:\n' + validationIssues.map(issue => `• ${issue}`).join('\n')
   )
 }
 
+/**
+ * MM4 Ward plan data structure.
+ * Contains the 4 quadrants (Mission, Temple, Family History, Invite) with their actions.
+ * @type {Object}
+ */
 export const planData = createPlanData(operationsData)
 
+/**
+ * Re-export flows for convenient access to operation sequences.
+ * @see {@link module:matrixUtils~flows}
+ */
 export { flows }
 
+/**
+ * Re-export boundary cards content.
+ * @see {@link module:boundaryContent}
+ */
 export { boundaryCards } from './boundaryContent'

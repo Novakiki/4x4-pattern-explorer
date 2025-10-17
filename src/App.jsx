@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import FocusSelector from './components/FocusSelector'
+import LensSelector from './components/LensSelector'
 import PatternDetail from './components/PatternDetail'
 import PatternMatrix from './components/PatternMatrix'
 import PlanView from './components/PlanView'
@@ -10,20 +10,20 @@ import patternsData from './data/patterns.json'
 import { operationsData, planData } from './data/operationsData'
 
 function App() {
-  const [selectedFocus, setSelectedFocus] = useState(lensesData.lenses[0])
+  const [selectedLens, setSelectedLens] = useState(lensesData.lenses[0])
   const [selectedPattern, setSelectedPattern] = useState(null)
   const [view, setView] = useState('home') // 'home', 'pattern', 'matrix'
 
   // Handle URL parameters for sharing
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
-    const focusId = params.get('focus')
+    const lensId = params.get('lens')
     const operationKey = params.get('operation')
     const patternId = params.get('pattern')
 
-    if (focusId) {
-      const focus = lensesData.lenses.find(f => f.id === focusId)
-      if (focus) setSelectedFocus(focus)
+    if (lensId) {
+      const lens = lensesData.lenses.find(l => l.id === lensId)
+      if (lens) setSelectedLens(lens)
     }
 
     if (operationKey && operationsData.operations[operationKey]) {
@@ -37,11 +37,11 @@ function App() {
     }
   }, [])
 
-  // Update URL when focus changes
-  const handleFocusChange = (focus) => {
-    setSelectedFocus(focus)
+  // Update URL when lens changes
+  const handleLensChange = (lens) => {
+    setSelectedLens(lens)
     const params = new URLSearchParams(window.location.search)
-    params.set('focus', focus.id)
+    params.set('lens', lens.id)
     window.history.replaceState({}, '', `${window.location.pathname}?${params}`)
   }
 
@@ -109,25 +109,25 @@ function App() {
       <main className="max-w-5xl mx-auto px-4 py-8 sm:py-12">
         {view === 'home' && (
           <div className="space-y-12">
-            {/* Focus Selector */}
+            {/* Lens Selector */}
             <section>
-              <FocusSelector
-                focuses={lensesData.lenses}
-                selectedFocus={selectedFocus}
-                onFocusChange={handleFocusChange}
+              <LensSelector
+                lenses={lensesData.lenses}
+                selectedLens={selectedLens}
+                onLensChange={handleLensChange}
               />
             </section>
 
             {/* Quote Display */}
             <section>
-              <QuoteDisplay selectedFocus={selectedFocus} />
+              <QuoteDisplay selectedLens={selectedLens} />
             </section>
 
             {/* 4x4 Plan */}
             <section>
               <PlanView
                 plan={planData}
-                selectedFocus={selectedFocus}
+                selectedLens={selectedLens}
               />
             </section>
 
@@ -145,7 +145,7 @@ function App() {
               <PatternMatrix
                 patterns={patternsData.patterns}
                 onPatternClick={handlePatternClick}
-                highlightedPatternIds={selectedFocus.highlightPatterns ?? []}
+                highlightedPatternIds={selectedLens.highlightPatterns ?? []}
               />
             </section>
           </div>
@@ -159,10 +159,10 @@ function App() {
         )}
 
         {view === 'matrix' && (
-          <MetaMatrix 
-            selectedFocus={selectedFocus}
-            onFocusChange={handleFocusChange}
-            allFocuses={lensesData.lenses}
+          <MetaMatrix
+            selectedLens={selectedLens}
+            onLensChange={handleLensChange}
+            allLenses={lensesData.lenses}
           />
         )}
       </main>

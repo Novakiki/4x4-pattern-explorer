@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import PropTypes from 'prop-types'
 import lensesData from '../data/lenses.json'
 import patternsData from '../data/patterns.json'
 import { operationsData, boundaryCards } from '../data/operationsData'
@@ -337,5 +338,26 @@ export default function OperationDetailModal({
       )}
     </div>
   )
+}
+
+OperationDetailModal.propTypes = {
+  operation: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    essence: PropTypes.string.isRequired,
+    inquiry: PropTypes.string,
+    color: PropTypes.string.isRequired,
+    lensExamples: PropTypes.object,
+    mm4Example: PropTypes.shape({
+      action: PropTypes.string,
+      bridge: PropTypes.string
+    }),
+    relatedPatterns: PropTypes.arrayOf(PropTypes.number),
+    connectedOperations: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired,
+  rowVerb: PropTypes.string.isRequired,
+  colVerb: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSelectOperation: PropTypes.func
 }
 

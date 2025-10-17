@@ -1,13 +1,27 @@
+/**
+ * Matrix Data Utilities
+ *
+ * This file provides utilities for working with the Meta-Matrix of 16 cognitive operations.
+ * The matrix is formed by combining 4 base verbs (OBSERVE, ASK, REMEMBER, IMAGINE) with themselves.
+ *
+ * @module matrixUtils
+ */
+
+/** The 4 base verbs that form the rows of the meta-matrix */
 export const ROWS = ['OBSERVE', 'ASK', 'REMEMBER', 'IMAGINE']
+
+/** The 4 base verbs that form the columns of the meta-matrix (same as rows) */
 export const COLS = ROWS
 
+/** Color mapping for each base verb/row */
 export const ROW_COLORS = {
-  OBSERVE: '#3b82f6',
-  ASK: '#ef4444',
-  REMEMBER: '#f97316',
-  IMAGINE: '#10b981'
+  OBSERVE: '#3b82f6',  // Blue
+  ASK: '#ef4444',      // Red
+  REMEMBER: '#f97316', // Orange
+  IMAGINE: '#10b981'   // Green
 }
 
+/** Mapping of base verbs to MM4 Ward plan quadrants */
 const QUADRANTS = {
   OBSERVE: { id: 'mission', title: 'MISSION', subtitle: 'Observe' },
   ASK: { id: 'temple', title: 'TEMPLE', subtitle: 'Ask' },
@@ -35,13 +49,46 @@ const extractMm4Verb = (action = '') => {
   return { verb: match[1].trim(), action: normalized }
 }
 
+/**
+ * Predefined operation sequences (flows) through the matrix.
+ * Useful for creating guided journeys through the 16 operations.
+ *
+ * @example
+ * // Get all operations in the OBSERVE row
+ * const observeOps = flows.byRow('OBSERVE')
+ * // Returns: ['OBSERVE-OBSERVE', 'OBSERVE-ASK', 'OBSERVE-REMEMBER', 'OBSERVE-IMAGINE']
+ */
 export const flows = {
+  /** Get all operations in a specific row */
   byRow: row => COLS.map(col => `${row}-${col}`),
+
+  /** Get all operations in a specific column */
   byCol: col => ROWS.map(row => `${row}-${col}`),
+
+  /** Get the main diagonal (same verb combined with itself) */
   diagonalCW: () => ['OBSERVE-OBSERVE', 'ASK-ASK', 'REMEMBER-REMEMBER', 'IMAGINE-IMAGINE'],
+
+  /** Get the anti-diagonal (opposite verbs) */
   diagonalCCW: () => ['OBSERVE-IMAGINE', 'ASK-REMEMBER', 'REMEMBER-ASK', 'IMAGINE-OBSERVE']
 }
 
+/**
+ * Normalizes and enriches raw operations data.
+ *
+ * Takes raw operation data and adds computed fields like colors, labels, IDs, and connections.
+ * This is the main data processing function that prepares operations for use in components.
+ *
+ * @param {Object} source - Raw operations data object
+ * @param {Array<string>} [source.rows] - Optional custom row verbs (defaults to ROWS)
+ * @param {Array<string>} [source.cols] - Optional custom column verbs (defaults to COLS)
+ * @param {Object} source.operations - Raw operation definitions keyed by "ROW-COL"
+ * @returns {Object} Normalized data with rows, cols, rowColors, and enriched operations
+ *
+ * @example
+ * const normalized = normalizeOperationsData(rawOperationsData)
+ * console.log(normalized.operations['OBSERVE-ASK'])
+ * // { name: 'INQUIRE', row: 'OBSERVE', col: 'ASK', color: '#3b82f6', ... }
+ */
 export function normalizeOperationsData(source = {}) {
   const rows = Array.isArray(source.rows) && source.rows.length ? source.rows : ROWS
   const cols = Array.isArray(source.cols) && source.cols.length ? source.cols : COLS
@@ -103,6 +150,21 @@ export function normalizeOperationsData(source = {}) {
   }
 }
 
+/**
+ * Validates operations data for completeness and consistency.
+ *
+ * Checks that all required operations exist, colors match, MM4 examples are valid,
+ * lens examples are consistent, and connected operation IDs are valid.
+ *
+ * @param {Object} data - Normalized operations data (output of normalizeOperationsData)
+ * @returns {Array<string>} Array of validation issue messages (empty if valid)
+ *
+ * @example
+ * const issues = validateOperationsData(normalizedData)
+ * if (issues.length > 0) {
+ *   console.error('Validation failed:', issues)
+ * }
+ */
 export function validateOperationsData(data) {
   const issues = []
   const rows = data?.rows || ROWS
@@ -162,6 +224,20 @@ export function validateOperationsData(data) {
   return issues
 }
 
+/**
+ * Creates MM4 Ward plan data structure from operations data.
+ *
+ * Transforms the matrix operations into the 4-quadrant MM4 plan structure
+ * (Mission, Temple, Family History, Invite), with each quadrant containing
+ * 4 actions derived from the operations.
+ *
+ * @param {Object} data - Normalized operations data
+ * @returns {Object} Plan data with quadrants array
+ *
+ * @example
+ * const plan = createPlanData(normalizedData)
+ * // plan.quadrants[0] = { id: 'mission', title: 'MISSION', color: '#3b82f6', actions: [...] }
+ */
 export function createPlanData(data) {
   if (!data) {
     return { quadrants: [] }

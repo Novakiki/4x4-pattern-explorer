@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import {
   TextEntrySection,
   MultiSelectSection,
@@ -258,4 +259,39 @@ export default function BoundaryCard({ cardData, onClose, onComplete }) {
       </div>
     </div>
   )
+}
+
+BoundaryCard.propTypes = {
+  cardData: PropTypes.shape({
+    meta: PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      intro: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired
+    }).isRequired,
+    sections: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        helper: PropTypes.string,
+        placeholder: PropTypes.string,
+        description: PropTypes.string,
+        instructions: PropTypes.string,
+        options: PropTypes.array,
+        actions: PropTypes.array,
+        variants: PropTypes.object,
+        rewritePrompt: PropTypes.string,
+        rewritePlaceholder: PropTypes.string,
+        minLabel: PropTypes.string,
+        maxLabel: PropTypes.string,
+        cycles: PropTypes.number,
+        fields: PropTypes.array,
+        footer: PropTypes.string,
+        suggestions: PropTypes.array,
+        reminderToggle: PropTypes.object,
+        ui: PropTypes.object
+      })
+    ).isRequired
+  }).isRequired,
+  onClose: PropTypes.func.isRequired,
+  onComplete: PropTypes.func.isRequired
 }

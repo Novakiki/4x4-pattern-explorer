@@ -16,7 +16,7 @@ An interactive web application that helps users explore the MM4 Ward 4×4 Plan t
 
 ### Core Features
 
-1. **Focus/Lens Selector** - View the teaching through 13 different perspectives
+1. **Lens Selector** - View the teaching through 13 different perspectives
 2. **Quote Display** - Dynamic quote transformation based on selected focus
 3. **4×4 Plan View** - See the complete plan with focus-specific language
 4. **Pattern Matrix** - Explore 12 patterns that explain structural completeness
@@ -41,7 +41,7 @@ An interactive web application that helps users explore the MM4 Ward 4×4 Plan t
 ├── src/
 │   ├── App.jsx                          # Main app with routing logic
 │   ├── components/
-│   │   ├── FocusSelector.jsx            # Dropdown for selecting focuses
+│   │   ├── LensSelector.jsx             # Dropdown for selecting lenses
 │   │   ├── QuoteDisplay.jsx             # Transforms quote based on focus
 │   │   ├── PlanView.jsx                 # Displays 4×4 plan grid
 │   │   ├── PatternMatrix.jsx            # Grid of 12 patterns
@@ -164,7 +164,7 @@ The 4×4 MM4 Ward Plan:
 
 ```
 ┌─────────────────────────┐
-│   Focus Selector        │ ← User selects focus/lens
+│   Lens Selector         │ ← User selects lens
 ├─────────────────────────┤
 │   Quote Display         │ ← Quote transforms based on focus
 ├─────────────────────────┤
@@ -198,26 +198,26 @@ User clicks "Explore Meta-Matrix" → 4×4 grid showing:
 ### App.jsx
 
 **State management:**
-- `selectedFocus` - Currently selected lens
+- `selectedLens` - Currently selected lens
 - `selectedPattern` - Currently viewed pattern (if in pattern view)
 - `view` - Current view: 'home' | 'pattern' | 'matrix'
 
 **URL handling:**
-- Reads `?focus=psychological` on load
+- Reads `?lens=psychological` on load
 - Reads `?pattern=7` on load
 - Updates URL when state changes
 
-### FocusSelector.jsx
+### LensSelector.jsx
 
-Dropdown for selecting focuses. Shows:
-- Focus name
-- Focus color indicator
+Dropdown for selecting lenses. Shows:
+- Lens name
+- Lens color indicator
 - Description on hover
 
 ### QuoteDisplay.jsx
 
-Dynamically transforms President Nelson's quote based on selected focus:
-- Replaces "covenants" with focus-specific `covenant` phrase
+Dynamically transforms President Nelson's quote based on selected lens:
+- Replaces "covenants" with lens-specific `covenant` phrase
 - Replaces "gathering Israel" with `gather` phrase
 - Replaces "on either side of the veil" with `veil` phrase
 
@@ -271,20 +271,20 @@ Colors defined per focus in `tailwind.config.js`:
 
 ## Data Flow
 
-### Focus Selection Flow
+### Lens Selection Flow
 
 ```
-User selects focus
+User selects lens
     ↓
-FocusSelector calls onFocusChange(focus)
+LensSelector calls onLensChange(lens)
     ↓
-App.jsx updates selectedFocus state
+App.jsx updates selectedLens state
     ↓
-App.jsx updates URL with ?focus=id
+App.jsx updates URL with ?lens=id
     ↓
 QuoteDisplay re-renders with new covenant/gather/veil phrases
     ↓
-PlanView re-renders with focus-aware language
+PlanView re-renders with lens-aware language
     ↓
 PatternMatrix highlights different patterns
     ↓
@@ -334,11 +334,11 @@ npm run preview    # Preview production build
 See `TEST-CHECKLIST.md` for comprehensive testing procedures.
 
 **Quick smoke test:**
-1. Load homepage - should show focus selector
-2. Switch focus - quote should transform
+1. Load homepage - should show lens selector
+2. Switch lens - quote should transform
 3. Click pattern - should show detail view
 4. Click "Explore Meta-Matrix" - should show 4×4 grid
-5. Switch focus in matrix - operations should highlight
+5. Switch lens in matrix - operations should highlight
 
 ---
 
@@ -428,11 +428,11 @@ This makes the framework translatable across contexts.
 
 ## Common Tasks
 
-### Change the default focus
+### Change the default lens
 
 Edit `src/App.jsx` line 13:
 ```javascript
-const [selectedFocus, setSelectedFocus] = useState(lensesData.lenses[0])
+const [selectedLens, setSelectedLens] = useState(lensesData.lenses[0])
 ```
 
 ### Add a new color scheme
@@ -457,14 +457,14 @@ Edit `src/data/operationsData.js` in the `planData` object.
 
 ## Troubleshooting
 
-### Focus changes but quote doesn't transform
+### Lens changes but quote doesn't transform
 
-Check that the focus has valid `covenant`, `gather`, and `veil` fields in `lenses.json`.
+Check that the lens has valid `covenant`, `gather`, and `veil` fields in `lenses.json`.
 
 ### Operations not highlighting in Meta-Matrix
 
 Check that:
-1. Focus has `highlightOperations` array in `lenses.json`
+1. Lens has `highlightOperations` array in `lenses.json`
 2. Operation names match exactly (case-sensitive) with `operationsData.js`
 
 ### Pattern not showing correctly

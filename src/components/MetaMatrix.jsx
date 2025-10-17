@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import { operationsData } from '../data/operationsData'
 import OperationDetailModal from './OperationDetailModal'
 
-export default function MetaMatrix({ selectedFocus }) {
+export default function MetaMatrix({ selectedLens }) {
   const [selectedCell, setSelectedCell] = useState(null)
   const [hoveredRow, setHoveredRow] = useState(null)
   const [hoveredCol, setHoveredCol] = useState(null)
@@ -268,4 +269,11 @@ export default function MetaMatrix({ selectedFocus }) {
       )}
     </div>
   )
+}
+
+MetaMatrix.propTypes = {
+  selectedLens: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired
 }

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 /**
  * TextEntry section - for belief capture
@@ -57,6 +58,24 @@ export function TextEntrySection({ section, value, onChange, onAction }) {
       </div>
     </div>
   )
+}
+
+TextEntrySection.propTypes = {
+  section: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    helper: PropTypes.string,
+    placeholder: PropTypes.string,
+    suggestions: PropTypes.arrayOf(PropTypes.string),
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired
 }
 
 /**
@@ -472,4 +491,167 @@ export function RecapSection({ section, data, onEdit, onAction }) {
       )}
     </div>
   )
+}
+
+MultiSelectSection.propTypes = {
+  section: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        coach: PropTypes.string
+      })
+    ).isRequired,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  value: PropTypes.arrayOf(PropTypes.string),
+  onChange: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired
+}
+
+SingleSelectSection.propTypes = {
+  section: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        description: PropTypes.string,
+        coach: PropTypes.string
+      })
+    ).isRequired,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired
+}
+
+SingleSelectWithRewriteSection.propTypes = {
+  section: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired,
+        description: PropTypes.string
+      })
+    ).isRequired,
+    rewritePrompt: PropTypes.string,
+    rewritePlaceholder: PropTypes.string,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  value: PropTypes.string,
+  rewriteValue: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onRewriteChange: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired
+}
+
+SliderSection.propTypes = {
+  section: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    minLabel: PropTypes.string.isRequired,
+    maxLabel: PropTypes.string.isRequired,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  value: PropTypes.number,
+  onChange: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired
+}
+
+ConditionalFieldSection.propTypes = {
+  section: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    variants: PropTypes.objectOf(
+      PropTypes.shape({
+        prompt: PropTypes.string.isRequired,
+        placeholder: PropTypes.string
+      })
+    ).isRequired,
+    reminderToggle: PropTypes.shape({
+      label: PropTypes.string.isRequired
+    }),
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  reminder: PropTypes.bool,
+  onReminderChange: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired,
+  permeability: PropTypes.string
+}
+
+BreathPracticeSection.propTypes = {
+  section: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    instructions: PropTypes.string.isRequired,
+    cycles: PropTypes.number.isRequired,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  onAction: PropTypes.func.isRequired
+}
+
+RecapSection.propTypes = {
+  section: PropTypes.shape({
+    fields: PropTypes.arrayOf(
+      PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        label: PropTypes.string.isRequired
+      })
+    ).isRequired,
+    footer: PropTypes.string
+  }).isRequired,
+  data: PropTypes.shape({
+    belief_text: PropTypes.string,
+    rewrite_text: PropTypes.string,
+    origins: PropTypes.arrayOf(PropTypes.string),
+    permeability: PropTypes.string,
+    function_now: PropTypes.string,
+    placement: PropTypes.number,
+    experiment: PropTypes.shape({
+      text: PropTypes.string,
+      reminder: PropTypes.bool
+    })
+  }).isRequired,
+  onEdit: PropTypes.func.isRequired,
+  onAction: PropTypes.func.isRequired
 }

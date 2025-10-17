@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 
 // Color scheme for the four types of inquiry
 // Represents the journey from questioning → discovery → integration → transformation
@@ -9,7 +10,7 @@ const INQUIRY_COLORS = {
   shift: { dot: 'text-amber-400', text: 'text-amber-700' }           // Transformation, illumination
 }
 
-export default function PlanView({ plan, selectedFocus }) {
+export default function PlanView({ plan, selectedLens }) {
   const [showPerspectives, setShowPerspectives] = useState(false)
   const [showExplanation, setShowExplanation] = useState(false)
 
@@ -19,9 +20,9 @@ export default function PlanView({ plan, selectedFocus }) {
       <div className="text-center">
         <div
           className="inline-block px-4 py-2 rounded-full text-sm font-medium text-white mb-4"
-          style={{ backgroundColor: selectedFocus.color }}
+          style={{ backgroundColor: selectedLens.color }}
         >
-          Viewing the matrix through the {selectedFocus.name} focus
+          Viewing the matrix through the {selectedLens.name} lens
         </div>
         <h1 className="text-3xl sm:text-4xl font-serif font-bold text-stone-900 mb-4">
           MM4th Ward 4×4 Plan
@@ -146,7 +147,7 @@ export default function PlanView({ plan, selectedFocus }) {
               {quadrant.actions.map((action, idx) => {
                 const actionKey = `${quadrant.id}-${idx}`
                 const isHighlighted =
-                  !!selectedFocus.highlightAxes?.includes(action.duality?.axisId ?? '')
+                  !!selectedLens.highlightAxes?.includes(action.duality?.axisId ?? '')
 
                 // For Mission quadrant, use originalVerb (BE, EXPAND, PRAY, REACH OUT)
                 const isMission = quadrant.id === 'mission'
@@ -226,4 +227,34 @@ export default function PlanView({ plan, selectedFocus }) {
       </div>
     </div>
   )
+}
+
+PlanView.propTypes = {
+  plan: PropTypes.shape({
+    quadrants: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+        color: PropTypes.string.isRequired,
+        actions: PropTypes.arrayOf(
+          PropTypes.shape({
+            verb: PropTypes.string.isRequired,
+            action: PropTypes.string.isRequired,
+            perspective: PropTypes.string,
+            originalVerb: PropTypes.string,
+            duality: PropTypes.shape({
+              axisId: PropTypes.string
+            })
+          })
+        ).isRequired
+      })
+    ).isRequired
+  }).isRequired,
+  selectedLens: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
+    highlightAxes: PropTypes.arrayOf(PropTypes.string)
+  }).isRequired
 }

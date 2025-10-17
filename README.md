@@ -21,7 +21,7 @@ An interactive web application for exploring the MM4th Ward 4×4 Plan through 12
 
 1. **Clone and install:**
 ```bash
-cd 4x4-lens-explorer
+cd 4x4_matrix
 npm install
 ```
 
@@ -31,7 +31,7 @@ npm run dev
 ```
 
 3. **Open in browser:**
-Navigate to `http://localhost:3000`
+Navigate to `http://localhost:5173`
 
 ### Build for Production
 
@@ -129,18 +129,23 @@ Edit `src/data/patterns.json` to add more patterns.
 ## 📂 Project Structure
 
 ```
-4x4-lens-explorer/
+4x4_matrix/
 ├── src/
 │   ├── components/          # React components
 │   │   ├── LensSelector.jsx
 │   │   ├── QuoteDisplay.jsx
 │   │   ├── PatternMatrix.jsx
 │   │   ├── PatternDetail.jsx
-│   │   └── PlanView.jsx
-│   ├── data/               # JSON data files
-│   │   ├── lenses.json
-│   │   ├── patterns.json
-│   │   └── plan.json
+│   │   ├── PlanView.jsx
+│   │   ├── MetaMatrix.jsx
+│   │   ├── BoundaryCard.jsx
+│   │   └── ...
+│   ├── data/               # Data files
+│   │   ├── lenses.json          # Pure data (editable)
+│   │   ├── patterns.json        # Pure data (editable)
+│   │   ├── operationsData.js    # Operations + plan data
+│   │   ├── boundaryContent.js   # Boundary card content
+│   │   └── matrixUtils.js       # Utility functions
 │   ├── App.jsx             # Main app component
 │   ├── main.jsx            # Entry point
 │   └── index.css           # Global styles
