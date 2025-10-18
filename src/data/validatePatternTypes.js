@@ -13,7 +13,7 @@
 import { readFileSync } from 'fs'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
-import { BASE_VERBS, OPERATION_KEY_REGEX, PATTERN_TYPES } from './patternTypes.js'
+import { BASE_VERBS, OPERATION_KEY_REGEX, PATTERN_TYPES, PATTERN_CATEGORIES } from './patternTypes.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -54,6 +54,13 @@ patterns.forEach(pattern => {
     issues.push(`Invalid type: ${pattern.type}`)
   }
 
+  // 1b. Validate category field exists
+  if (!pattern.category) {
+    issues.push('Missing category field')
+  } else if (!Object.values(PATTERN_CATEGORIES).includes(pattern.category)) {
+    issues.push(`Invalid category: ${pattern.category}`)
+  }
+
   // 2. Validate derivation metadata
   if (!pattern.derivation) {
     warnings.push('Missing derivation metadata')
@@ -73,6 +80,10 @@ patterns.forEach(pattern => {
     validatePartitionPattern(pattern, issues, warnings)
   } else if (pattern.type === PATTERN_TYPES.MAPPING) {
     validateMappingPattern(pattern, issues, warnings)
+  } else if (pattern.type === PATTERN_TYPES.RHYTHM) {
+    validateRhythmPattern(pattern, issues, warnings)
+  } else if (pattern.type === PATTERN_TYPES.MIXED) {
+    validateMixedPattern(pattern, issues, warnings)
   }
 
   // 4. Validate operation references
@@ -215,6 +226,40 @@ function validateMappingPattern(pattern, issues, warnings) {
 
   if (uniqueCategories.size < categories.length) {
     warnings.push('Some category labels are duplicated')
+  }
+}
+
+/**
+ * Validate RHYTHM type pattern
+ */
+function validateRhythmPattern(pattern, issues, warnings) {
+  // RHYTHM patterns should have both sequence and partition aspects
+  if (!pattern.operationSequence && !pattern.operationPartition) {
+    warnings.push('RHYTHM type should have operationSequence and/or operationPartition')
+  }
+
+  // Check for oscillation/alternation structure
+  if (pattern.operationPartition) {
+    const partitionKeys = Object.keys(pattern.operationPartition)
+    if (partitionKeys.length !== 2) {
+      warnings.push('RHYTHM patterns typically partition into 2 alternating phases')
+    }
+  }
+}
+
+/**
+ * Validate MIXED type pattern
+ */
+function validateMixedPattern(pattern, issues, warnings) {
+  // MIXED patterns should have multiple derived structures
+  const hasSequence = !!pattern.operationSequence
+  const hasPartition = !!pattern.operationPartition
+  const hasMapping = !!pattern.operationMapping
+
+  const structureCount = [hasSequence, hasPartition, hasMapping].filter(Boolean).length
+
+  if (structureCount < 2) {
+    warnings.push('MIXED type should exhibit at least 2 different structural patterns')
   }
 }
 

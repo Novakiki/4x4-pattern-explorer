@@ -47,6 +47,7 @@ console.log('=' .repeat(80))
 classifications.forEach(classification => {
   console.log(`\n#${classification.id}: ${classification.title}`)
   console.log(`  Type: ${classification.type}`)
+  console.log(`  Category: ${classification.category || 'MANUAL_REVIEW_REQUIRED'} (${classification.categoryConfidence})`)
   console.log(`  Confidence: ${classification.confidence}`)
   console.log(`  Signals: ${classification.signals.length > 0 ? classification.signals.join(', ') : 'None'}`)
 

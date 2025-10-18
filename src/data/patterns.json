@@ -17,22 +17,21 @@
       "type": "MAPPING",
       "derivation": {
         "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
-          "temporal_language",
           "four_verb_mapping",
           "categorical_labels",
           "external_framework"
         ],
-        "ambiguities": [
-          "Multiple pattern type signals detected"
-        ]
+        "ambiguities": []
       },
       "operationMapping": {
         "OBSERVE": "Present moment awareness",
         "ASK": "Eternal/timeless (stepping outside time)",
         "REMEMBER": "Past (what came before)",
         "IMAGINE": "Future (what's not yet here)"
-      }
+      },
+      "category": "COMPLETENESS"
     },
     {
       "id": 2,
@@ -49,6 +48,7 @@
       "type": "PARTITION",
       "derivation": {
         "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
           "sequential_verbs",
           "axis_language",
@@ -69,7 +69,8 @@
           "OBSERVE",
           "ASK"
         ]
-      }
+      },
+      "category": "STRUCTURAL"
     },
     {
       "id": 3,
@@ -88,6 +89,7 @@
       "type": "MAPPING",
       "derivation": {
         "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
           "axis_language",
           "four_verb_mapping",
@@ -103,7 +105,8 @@
         "ASK": "Self + Source (connection to what's greater)",
         "REMEMBER": "Self + Lineage (those who came before)",
         "IMAGINE": "Self + Community (the collective being formed)"
-      }
+      },
+      "category": "COMPLETENESS"
     },
     {
       "id": 4,
@@ -122,6 +125,7 @@
       "type": "MAPPING",
       "derivation": {
         "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
           "four_verb_mapping",
           "categorical_labels",
@@ -134,7 +138,8 @@
         "ASK": "Inspired knowing (through opening to guidance beyond yourself)",
         "REMEMBER": "Historical knowing (through story, record, and lineage)",
         "IMAGINE": "Intuitive knowing (through vision and pattern-recognition)"
-      }
+      },
+      "category": "COMPLETENESS"
     },
     {
       "id": 5,
@@ -153,6 +158,7 @@
       "type": "MAPPING",
       "derivation": {
         "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
           "axis_language",
           "four_verb_mapping",
@@ -168,37 +174,73 @@
         "ASK": "At the threshold (liminal space between states)",
         "REMEMBER": "The other side (what's distant, past, or beyond awareness)",
         "IMAGINE": "Dissolving boundaries (integration and wholeness)"
-      }
+      },
+      "category": "COMPLETENESS"
     },
     {
       "id": 6,
-      "title": "Action-Contemplation Rhythm",
-      "subtitle": "Preventing Burnout Through Balance",
-      "description": "The quadrants alternate between doing and being, preventing burnout.",
+      "title": "Four-Phase Oscillation",
+      "subtitle": "The Rhythm of Expansion and Contraction",
+      "description": "The framework pulses through four distinct phases—intake, pause, release, rest—creating a natural rhythm found in breath, action-contemplation cycles, and all living systems.",
       "mapping": {
-        "observe": "Active reception (awake, noticing, engaged)",
-        "ask": "Contemplative pause (stepping back, reflecting, seeking)",
-        "remember": "Active research (doing the work, building connections)",
-        "imagine": "Contemplative projection (envisioning, allowing emergence)"
+        "observe": "Intake (receiving, gathering, inhaling)",
+        "ask": "Fullness pause (holding, contemplating, integrating)",
+        "remember": "Release (giving, exhaling, letting go)",
+        "imagine": "Emptiness pause (resting, preparing, allowing emergence)"
       },
-      "whyItMatters": "All action with no contemplation leads to exhaustion. All contemplation with no action leads to stagnation. This framework builds rest into the cycle.",
-      "reflection": "Are you more naturally action-oriented or contemplation-oriented? What would balance feel like?",
-      "ldsExample": "Missionary work (active), temple worship (contemplative), family history work (active), prayerful planning (contemplative)",
-      "type": "MIXED",
+      "examples": {
+        "breath": {
+          "observe": "Inhale (taking in, receiving, gathering)",
+          "ask": "Hold at the top (pause, fullness, contemplation)",
+          "remember": "Exhale (releasing, honoring, letting go)",
+          "imagine": "Hold at the bottom (emptiness, potential, before new creation)"
+        },
+        "actionContemplation": {
+          "observe": "Active reception (awake, noticing, engaged)",
+          "ask": "Contemplative pause (stepping back, reflecting, seeking)",
+          "remember": "Active research (doing the work, building connections)",
+          "imagine": "Contemplative projection (envisioning, allowing emergence)"
+        },
+        "energy": {
+          "observe": "Gathering energy (building momentum)",
+          "ask": "Peak energy (full engagement)",
+          "remember": "Releasing energy (productive output)",
+          "imagine": "Rest (recovery, restoration)"
+        }
+      },
+      "whyItMatters": "The framework literally breathes. It's rhythmic, cyclical, life-giving. You can't rush it. You can't skip steps. It moves at the pace of life itself. All action with no contemplation leads to exhaustion. All contemplation with no action leads to stagnation. This pattern builds sustainable rhythm into the cycle.",
+      "reflection": "Can you feel the oscillation rhythm in your practice? What phase are you in right now? Are you more naturally oriented to intake/release or to the pause states?",
+      "ldsExample": "Receive from missionary work, pause in temple worship, release through family history service, rest before beginning again",
+      "type": "RHYTHM",
       "derivation": {
-        "confidence": "MEDIUM",
+        "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
           "temporal_language",
           "cycle_pattern",
           "axis_language",
-          "four_verb_mapping",
-          "categorical_labels"
+          "four_verb_mapping"
         ],
-        "ambiguities": [
-          "Multiple pattern type signals detected",
-          "Pattern exhibits characteristics of multiple types"
-        ]
-      }
+        "ambiguities": [],
+        "manualOverride": "Consolidated from Action-Contemplation Rhythm + Breath Cycle into unified RHYTHM pattern"
+      },
+      "operationSequence": [
+        "OBSERVE",
+        "ASK",
+        "REMEMBER",
+        "IMAGINE"
+      ],
+      "operationPartition": {
+        "active": ["OBSERVE", "REMEMBER"],
+        "contemplative": ["ASK", "IMAGINE"]
+      },
+      "operationMapping": {
+        "OBSERVE": "Intake (receiving, gathering, inhaling)",
+        "ASK": "Fullness pause (holding, contemplating, integrating)",
+        "REMEMBER": "Release (giving, exhaling, letting go)",
+        "IMAGINE": "Emptiness pause (resting, preparing, allowing emergence)"
+      },
+      "category": "STRUCTURAL"
     },
     {
       "id": 7,
@@ -217,6 +259,7 @@
       "type": "MAPPING",
       "derivation": {
         "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
           "four_verb_mapping",
           "categorical_labels",
@@ -229,7 +272,8 @@
         "ASK": "Thinking (inquiry, reasoning, understanding)",
         "REMEMBER": "Feeling (emotional connection, meaning-making)",
         "IMAGINE": "Intuition (possibility, pattern-seeing)"
-      }
+      },
+      "category": "COMPLETENESS"
     },
     {
       "id": 8,
@@ -249,6 +293,7 @@
       "type": "SEQUENCE",
       "derivation": {
         "confidence": "HIGH",
+        "categoryConfidence": "MEDIUM",
         "signals": [
           "explicit_steps",
           "temporal_language",
@@ -263,39 +308,11 @@
         "REMEMBER",
         "IMAGINE",
         "OBSERVE"
-      ]
+      ],
+      "category": "COMPLETENESS"
     },
     {
       "id": 9,
-      "title": "The Breath Cycle",
-      "subtitle": "The Most Fundamental Human Rhythm",
-      "description": "The four quadrants map to the four phases of breathing—the most fundamental human rhythm.",
-      "mapping": {
-        "observe": "Inhale (taking in, receiving, gathering)",
-        "ask": "Hold at the top (pause, fullness, contemplation)",
-        "remember": "Exhale (releasing, honoring, letting go)",
-        "imagine": "Hold at the bottom (emptiness, potential, before new creation)"
-      },
-      "whyItMatters": "The framework literally breathes. It's rhythmic, cyclical, life-giving. You can't rush it. You can't skip steps. It moves at the pace of life itself.",
-      "reflection": "Can you feel the breath rhythm in your practice? What phase are you in right now?",
-      "ldsExample": "Receive from missionary work, pause in temple worship, release through family history service, rest before beginning again",
-      "type": "MIXED",
-      "derivation": {
-        "confidence": "MEDIUM",
-        "signals": [
-          "temporal_language",
-          "cycle_pattern",
-          "four_verb_mapping",
-          "categorical_labels"
-        ],
-        "ambiguities": [
-          "Multiple pattern type signals detected",
-          "Pattern exhibits characteristics of multiple types"
-        ]
-      }
-    },
-    {
-      "id": 10,
       "title": "Fractal (Scale-Free) Structure",
       "subtitle": "The Same Pattern at Every Scale",
       "description": "The same 4-part cycle repeats at every scale, from micro to cosmic.",
@@ -311,6 +328,7 @@
       "type": "SEQUENCE",
       "derivation": {
         "confidence": "MEDIUM",
+        "categoryConfidence": "HIGH",
         "signals": [
           "temporal_language",
           "cycle_pattern",
@@ -318,14 +336,73 @@
         ],
         "ambiguities": [
           "Multiple pattern type signals detected"
-        ]
+        ],
+        "manualOverride": "Category manually set to STRUCTURAL - scale invariance is a geometric property of the matrix"
       },
       "operationSequence": [
         "OBSERVE",
         "ASK",
         "REMEMBER",
         "IMAGINE"
-      ]
+      ],
+      "category": "STRUCTURAL"
+    },
+    {
+      "id": 10,
+      "title": "Diagonal Integrity",
+      "subtitle": "Self-Reference vs. Cross-Pollination",
+      "description": "The matrix diagonal distinguishes pure self-operations (OBSERVE-OBSERVE, ASK-ASK, etc.) from hybrid cross-operations that integrate different verbs.",
+      "mapping": {
+        "mainDiagonal": "Self-reference operations (verb applied to itself)",
+        "offDiagonal": "Cross-pollination operations (verb applied to different verb)"
+      },
+      "structure": {
+        "mainDiagonal": {
+          "observe-observe": "Witnessing your witnessing (reflexive awareness)",
+          "ask-ask": "Questioning your questions (reflexive inquiry)",
+          "remember-remember": "Remembering your remembering (reflexive memory)",
+          "imagine-imagine": "Envisioning your envisioning (reflexive creation)"
+        },
+        "offDiagonal": {
+          "description": "12 hybrid operations where one verb acts upon another",
+          "examples": [
+            "OBSERVE-ASK: Witnessing your questions",
+            "ASK-REMEMBER: Questioning your memories",
+            "REMEMBER-IMAGINE: Recalling your visions",
+            "IMAGINE-OBSERVE: Envisioning what you notice"
+          ]
+        }
+      },
+      "whyItMatters": "The diagonal reveals the symmetry spine of the matrix: self-referential operations create reflexive awareness and integration, while off-diagonal operations create new synthesis. Without the diagonal, you miss the difference between deepening a single mode and bridging between modes.",
+      "reflection": "Do you tend to stay on the diagonal (deepening single modes) or move off-diagonal (bridging between modes)? What does your pattern reveal about how you process experience?",
+      "ldsExample": "ASK-ASK: questioning your questions in personal worship vs. REMEMBER-ASK: carrying earlier questions back into the present",
+      "type": "PARTITION",
+      "derivation": {
+        "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
+        "signals": [
+          "axis_language",
+          "dichotomy",
+          "complementary_pairs",
+          "spatial_split"
+        ],
+        "ambiguities": []
+      },
+      "operationPartition": {
+        "mainDiagonal": [
+          "OBSERVE-OBSERVE",
+          "ASK-ASK",
+          "REMEMBER-REMEMBER",
+          "IMAGINE-IMAGINE"
+        ],
+        "offDiagonal": [
+          "OBSERVE-ASK", "OBSERVE-REMEMBER", "OBSERVE-IMAGINE",
+          "ASK-OBSERVE", "ASK-REMEMBER", "ASK-IMAGINE",
+          "REMEMBER-OBSERVE", "REMEMBER-ASK", "REMEMBER-IMAGINE",
+          "IMAGINE-OBSERVE", "IMAGINE-ASK", "IMAGINE-REMEMBER"
+        ]
+      },
+      "category": "STRUCTURAL"
     },
     {
       "id": 11,
@@ -344,6 +421,7 @@
       "type": "MAPPING",
       "derivation": {
         "confidence": "MEDIUM",
+        "categoryConfidence": "MEDIUM",
         "signals": [
           "four_verb_mapping",
           "categorical_labels"
@@ -355,7 +433,8 @@
         "ASK": "Hypothesis (formulate questions, propose answers)",
         "REMEMBER": "Research (review existing knowledge, consult sources)",
         "IMAGINE": "Theory (propose what could be, test predictions)"
-      }
+      },
+      "category": "COMPLETENESS"
     },
     {
       "id": 12,
@@ -371,29 +450,38 @@
       "whyItMatters": "Neither receptive nor active energy is privileged. Both are essential. The framework won't work if you only do half. You need to receive AND initiate, rest AND act.",
       "reflection": "Which energy feels more natural to you? What would it mean to honor both?",
       "ldsExample": "Receive in missionary work, initiate in temple worship, receive from ancestors, initiate in gathering",
-      "type": "MAPPING",
+      "type": "RHYTHM",
       "derivation": {
-        "confidence": "MEDIUM",
+        "confidence": "HIGH",
+        "categoryConfidence": "HIGH",
         "signals": [
           "axis_language",
           "four_verb_mapping",
           "categorical_labels"
         ],
-        "ambiguities": [
-          "Multiple pattern type signals detected"
-        ]
+        "ambiguities": [],
+        "manualOverride": "Type changed to RHYTHM - represents alternating oscillation pattern along axis"
       },
       "operationMapping": {
         "OBSERVE": "Receptive (receiving what is, being present)",
         "ASK": "Active (seeking, pursuing, initiating)",
         "REMEMBER": "Receptive (receiving from the past, being taught)",
         "IMAGINE": "Active (creating, building, envisioning)"
-      }
+      },
+      "operationPartition": {
+        "receptive": ["OBSERVE", "REMEMBER"],
+        "active": ["ASK", "IMAGINE"]
+      },
+      "category": "STRUCTURAL"
     }
   ],
   "_metadata": {
-    "lastUpdated": "2025-10-18T05:30:06.221Z",
-    "classificationVersion": "1.0.0",
-    "note": "Type classifications are computationally derived from structural signals"
+    "lastUpdated": "2025-10-18T06:02:24.277Z",
+    "classificationVersion": "2.0.0",
+    "note": "Type classifications and categories are computationally derived from structural signals",
+    "categories": {
+      "STRUCTURAL": "Geometric properties inherent to the 4×4 matrix",
+      "COMPLETENESS": "Proofs that the 4×4 maps exhaustive category systems"
+    }
   }
 }

@@ -5,6 +5,11 @@
  * - SEQUENCE: Temporal progression through operations
  * - PARTITION: Structural division of the operation space
  * - MAPPING: Categorical overlay onto the four base verbs
+ * - RHYTHM: Oscillating patterns that combine sequence and partition characteristics
+ *
+ * And two pattern categories that serve distinct epistemic functions:
+ * - STRUCTURAL: Geometric properties inherent to the 4×4 matrix
+ * - COMPLETENESS: Proofs that the 4×4 maps exhaustive category systems
  *
  * @module patternTypes
  */
@@ -16,7 +21,17 @@ export const PATTERN_TYPES = {
   SEQUENCE: 'SEQUENCE',
   PARTITION: 'PARTITION',
   MAPPING: 'MAPPING',
-  MIXED: 'MIXED'
+  MIXED: 'MIXED',
+  RHYTHM: 'RHYTHM'
+}
+
+/**
+ * Pattern category constants
+ * Categories represent the epistemic function of a pattern
+ */
+export const PATTERN_CATEGORIES = {
+  STRUCTURAL: 'STRUCTURAL',
+  COMPLETENESS: 'COMPLETENESS'
 }
 
 /**
@@ -68,6 +83,22 @@ export const TYPE_KEYWORDS = {
   mapping: [
     'each', 'represents', 'dimension', 'type', 'way',
     'knowing', 'function', 'relationship', 'position'
+  ]
+}
+
+/**
+ * Keywords that indicate pattern categories
+ */
+export const CATEGORY_KEYWORDS = {
+  structural: [
+    'diagonal', 'quadrant', 'corner', 'polarity', 'geometry',
+    'structure', 'matrix', 'inherent', 'spatial', 'topolog',
+    'cross', 'axis', 'partition', 'grid', 'coordinate'
+  ],
+  completeness: [
+    'all', 'every', 'complete', 'exhaustive', 'fundamental',
+    'covers', 'touches', 'entire', 'whole', 'total',
+    'jung', 'epistemo', 'time', 'dimension', 'function'
   ]
 }
 

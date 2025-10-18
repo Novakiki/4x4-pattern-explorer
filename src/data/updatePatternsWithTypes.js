@@ -25,6 +25,9 @@ console.log('🔄 Updating patterns.json with type classifications...\n')
 // Run classification
 const classifications = classifyAllPatterns(patterns)
 
+// Check if classifications actually changed
+let hasChanges = false
+
 // Merge classifications back into patterns
 const enrichedPatterns = patterns.map(pattern => {
   const classification = classifications.find(c => c.id === pattern.id)
@@ -38,8 +41,10 @@ const enrichedPatterns = patterns.map(pattern => {
   const enriched = {
     ...pattern,
     type: classification.type,
+    category: classification.category,
     derivation: {
       confidence: classification.confidence,
+      categoryConfidence: classification.categoryConfidence,
       signals: classification.signals,
       ambiguities: classification.ambiguities
     }
@@ -58,27 +63,62 @@ const enrichedPatterns = patterns.map(pattern => {
     enriched.operationMapping = classification.derivedData.operationMapping
   }
 
-  console.log(`✓ Pattern #${pattern.id}: ${pattern.title} -> ${classification.type}`)
+  // Check if this pattern actually changed
+  const originalJson = JSON.stringify({
+    type: pattern.type,
+    category: pattern.category,
+    derivation: pattern.derivation,
+    operationSequence: pattern.operationSequence,
+    operationPartition: pattern.operationPartition,
+    operationMapping: pattern.operationMapping
+  })
+
+  const enrichedJson = JSON.stringify({
+    type: enriched.type,
+    category: enriched.category,
+    derivation: enriched.derivation,
+    operationSequence: enriched.operationSequence,
+    operationPartition: enriched.operationPartition,
+    operationMapping: enriched.operationMapping
+  })
+
+  if (originalJson !== enrichedJson) {
+    hasChanges = true
+    const categoryLabel = classification.category || 'MANUAL_REVIEW_REQUIRED'
+    console.log(`✓ Pattern #${pattern.id}: ${pattern.title} -> ${classification.type} (${categoryLabel})`)
+  } else {
+    console.log(`  Pattern #${pattern.id}: ${pattern.title} (unchanged)`)
+  }
 
   return enriched
 })
 
-// Write updated patterns back to file
-const updatedData = {
-  ...patternsData,
-  patterns: enrichedPatterns,
-  _metadata: {
-    lastUpdated: new Date().toISOString(),
-    classificationVersion: '1.0.0',
-    note: 'Type classifications are computationally derived from structural signals'
+// Only write if there are actual changes
+if (hasChanges) {
+  // Write updated patterns back to file
+  const updatedData = {
+    ...patternsData,
+    patterns: enrichedPatterns,
+    _metadata: {
+      lastUpdated: new Date().toISOString(),
+      classificationVersion: '2.0.0',
+      note: 'Type classifications and categories are computationally derived from structural signals',
+      categories: {
+        STRUCTURAL: 'Geometric properties inherent to the 4×4 matrix',
+        COMPLETENESS: 'Proofs that the 4×4 maps exhaustive category systems'
+      }
+    }
   }
+
+  writeFileSync(
+    patternsPath,
+    JSON.stringify(updatedData, null, 2) + '\n',
+    'utf-8'
+  )
+
+  console.log('\n✅ patterns.json updated successfully!')
+  console.log(`   ${enrichedPatterns.length} patterns enriched with type data`)
+} else {
+  console.log('\n✓ No changes detected - patterns.json unchanged')
+  console.log('  All patterns already have current classifications')
 }
-
-writeFileSync(
-  patternsPath,
-  JSON.stringify(updatedData, null, 2) + '\n',
-  'utf-8'
-)
-
-console.log('\n✅ patterns.json updated successfully!')
-console.log(`   ${enrichedPatterns.length} patterns enriched with type data`)

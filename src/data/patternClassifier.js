@@ -9,28 +9,33 @@
  */
 
 import {
-    BASE_VERBS,
-    CONFIDENCE_LEVELS,
-    DETECTION_SIGNALS,
-    PATTERN_TYPES,
-    TYPE_KEYWORDS
+  BASE_VERBS,
+  CATEGORY_KEYWORDS,
+  CONFIDENCE_LEVELS,
+  DETECTION_SIGNALS,
+  PATTERN_CATEGORIES,
+  PATTERN_TYPES,
+  TYPE_KEYWORDS
 } from './patternTypes.js'
 
 /**
  * Classifies a single pattern based on structural signals
  * @param {Object} pattern - Pattern object from patterns.json
- * @returns {Object} Classification result with type, confidence, signals, and ambiguities
+ * @returns {Object} Classification result with type, confidence, signals, ambiguities, and category
  */
 export function classifyPattern(pattern) {
   const signals = detectSignals(pattern)
   const type = determineType(signals)
   const confidence = calculateConfidence(signals, type)
   const ambiguities = findAmbiguities(signals, type)
+  const categoryResult = deriveCategory(pattern, type, signals)
 
   return {
     id: pattern.id,
     title: pattern.title,
     type,
+    category: categoryResult.category,
+    categoryConfidence: categoryResult.confidence,
     confidence,
     signals,
     ambiguities,
@@ -110,10 +115,15 @@ function hasExplicitSteps(mapping) {
 
 /**
  * Check for temporal/sequential language
+ * Uses word boundaries to avoid false positives (e.g., "stepping" vs "step")
  */
 function hasTemporalLanguage(text) {
   const keywords = TYPE_KEYWORDS.sequence
-  return keywords.some(keyword => text.includes(keyword))
+  return keywords.some(keyword => {
+    // Use word boundary regex to match whole words only
+    const regex = new RegExp(`\\b${keyword}\\b`, 'i')
+    return regex.test(text)
+  })
 }
 
 /**
@@ -327,21 +337,138 @@ function findAmbiguities(signals, type) {
 }
 
 /**
+ * Derive pattern category (STRUCTURAL vs COMPLETENESS) based on signals
+ * Uses hybrid auto-detection with manual override capability
+ * @param {Object} pattern - Pattern object
+ * @param {string} type - Pattern type (SEQUENCE, PARTITION, MAPPING, etc.)
+ * @param {Array<string>} signals - Detected signals
+ * @returns {Object} Category and confidence level
+ */
+function deriveCategory(pattern, type, signals) {
+  const textToAnalyze = [
+    pattern.title,
+    pattern.subtitle,
+    pattern.description,
+    pattern.whyItMatters
+  ].join(' ').toLowerCase()
+
+  // STRUCTURAL signals
+  const structuralSignals = [
+    // Geometric language
+    hasKeywords(textToAnalyze, CATEGORY_KEYWORDS.structural),
+    // PARTITION types are inherently structural (they describe geometry)
+    type === PATTERN_TYPES.PARTITION,
+    // Axis/spatial split signals indicate geometry
+    signals.includes(DETECTION_SIGNALS.AXIS_LANGUAGE),
+    signals.includes(DETECTION_SIGNALS.SPATIAL_SPLIT),
+    signals.includes(DETECTION_SIGNALS.DICHOTOMY),
+    signals.includes(DETECTION_SIGNALS.COMPLEMENTARY_PAIRS)
+  ].filter(Boolean).length
+
+  // COMPLETENESS signals
+  const completenessSignals = [
+    // External framework references (Jung, epistemology, etc.)
+    signals.includes(DETECTION_SIGNALS.EXTERNAL_FRAMEWORK),
+    // Exhaustive/completeness language
+    hasKeywords(textToAnalyze, CATEGORY_KEYWORDS.completeness),
+    // Domain-specific terms
+    hasDomainSpecificTerms(textToAnalyze),
+    // MAPPING types often represent completeness arguments
+    type === PATTERN_TYPES.MAPPING
+  ].filter(Boolean).length
+
+  // Calculate scores
+  if (structuralSignals > completenessSignals) {
+    return {
+      category: PATTERN_CATEGORIES.STRUCTURAL,
+      confidence: structuralSignals >= 3 ? CONFIDENCE_LEVELS.HIGH : CONFIDENCE_LEVELS.MEDIUM
+    }
+  } else if (completenessSignals > structuralSignals) {
+    return {
+      category: PATTERN_CATEGORIES.COMPLETENESS,
+      confidence: completenessSignals >= 3 ? CONFIDENCE_LEVELS.HIGH : CONFIDENCE_LEVELS.MEDIUM
+    }
+  } else {
+    // Equal scores - flag for manual review
+    return {
+      category: null,
+      confidence: 'MANUAL_REVIEW_REQUIRED'
+    }
+  }
+}
+
+/**
+ * Check if text contains keywords from a list
+ * @param {string} text - Text to analyze
+ * @param {Array<string>} keywords - Keywords to search for
+ * @returns {boolean} True if any keyword found
+ */
+function hasKeywords(text, keywords) {
+  return keywords.some(keyword => {
+    const regex = new RegExp(`\\b${keyword}`, 'i')
+    return regex.test(text)
+  })
+}
+
+/**
+ * Check for domain-specific terminology indicating completeness arguments
+ * @param {string} text - Text to analyze
+ * @returns {boolean} True if domain-specific terms found
+ */
+function hasDomainSpecificTerms(text) {
+  const domains = [
+    'jung', 'psychological', 'epistemo', 'relationship',
+    'time', 'temporal', 'discovery', 'scientific',
+    'breath', 'physiolog', 'contemplation'
+  ]
+  return domains.some(domain => text.includes(domain))
+}
+
+/**
  * Derive pattern-specific data based on type
+ * For MIXED patterns, derives all applicable structures
  */
 function derivePatternData(pattern, type, signals) {
   const data = {}
 
-  if (type === PATTERN_TYPES.SEQUENCE) {
-    data.operationSequence = deriveOperationSequence(pattern)
+  // For MIXED patterns, check which structures are actually present
+  const hasSequenceSignals = type === PATTERN_TYPES.MIXED && signals.some(s =>
+    [DETECTION_SIGNALS.EXPLICIT_STEPS,
+     DETECTION_SIGNALS.TEMPORAL_LANGUAGE,
+     DETECTION_SIGNALS.CYCLE_PATTERN].includes(s)
+  )
+
+  const hasPartitionSignals = type === PATTERN_TYPES.MIXED && signals.some(s =>
+    [DETECTION_SIGNALS.AXIS_LANGUAGE,
+     DETECTION_SIGNALS.DICHOTOMY,
+     DETECTION_SIGNALS.COMPLEMENTARY_PAIRS].includes(s)
+  )
+
+  const hasMappingSignals = type === PATTERN_TYPES.MIXED && signals.some(s =>
+    [DETECTION_SIGNALS.FOUR_VERB_MAPPING,
+     DETECTION_SIGNALS.CATEGORICAL_LABELS].includes(s)
+  )
+
+  // Derive structures based on type or signals
+  if (type === PATTERN_TYPES.SEQUENCE || hasSequenceSignals) {
+    const sequence = deriveOperationSequence(pattern)
+    if (sequence) {
+      data.operationSequence = sequence
+    }
   }
 
-  if (type === PATTERN_TYPES.PARTITION) {
-    data.operationPartition = deriveOperationPartition(pattern)
+  if (type === PATTERN_TYPES.PARTITION || hasPartitionSignals) {
+    const partition = deriveOperationPartition(pattern)
+    if (partition) {
+      data.operationPartition = partition
+    }
   }
 
-  if (type === PATTERN_TYPES.MAPPING) {
-    data.operationMapping = deriveOperationMapping(pattern)
+  if (type === PATTERN_TYPES.MAPPING || hasMappingSignals) {
+    const mapping = deriveOperationMapping(pattern)
+    if (mapping) {
+      data.operationMapping = mapping
+    }
   }
 
   return data
