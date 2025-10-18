@@ -5,6 +5,12 @@ export default function PatternMatrix({
   onPatternClick,
   highlightedPatternIds = []
 }) {
+  const getCategoryColor = (category) => {
+    if (category === 'STRUCTURAL') return 'bg-blue-100 text-blue-700 border-blue-200'
+    if (category === 'COMPLETENESS') return 'bg-emerald-100 text-emerald-700 border-emerald-200'
+    return 'bg-stone-100 text-stone-600 border-stone-200'
+  }
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       {patterns.map((pattern) => (
@@ -18,8 +24,15 @@ export default function PatternMatrix({
           }`}
         >
           <div className="flex items-start justify-between mb-3">
-            <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 font-bold group-hover:bg-stone-200 transition-colors">
-              {pattern.id}
+            <div className="flex items-center gap-2">
+              <div className="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-stone-600 font-bold group-hover:bg-stone-200 transition-colors">
+                {pattern.id}
+              </div>
+              {pattern.category && (
+                <span className={`text-[10px] font-semibold uppercase tracking-wider px-2 py-1 rounded-full border ${getCategoryColor(pattern.category)}`}>
+                  {pattern.category === 'STRUCTURAL' ? 'Structure' : 'Complete'}
+                </span>
+              )}
             </div>
             <div className="flex flex-col items-end gap-1">
               <svg
@@ -61,7 +74,8 @@ PatternMatrix.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired
+      description: PropTypes.string.isRequired,
+      category: PropTypes.oneOf(['STRUCTURAL', 'COMPLETENESS'])
     })
   ).isRequired,
   onPatternClick: PropTypes.func.isRequired,

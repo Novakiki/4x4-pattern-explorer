@@ -16,6 +16,7 @@ function App() {
   const [selectedLens, setSelectedLens] = useState(lensesData.template)
   const [selectedPattern, setSelectedPattern] = useState(null)
   const [view, setView] = useState('home') // 'home', 'pattern', 'matrix'
+  const [categoryFilter, setCategoryFilter] = useState('ALL') // 'ALL', 'STRUCTURAL', 'COMPLETENESS'
 
   // Handle URL parameters for sharing
   useEffect(() => {
@@ -141,13 +142,56 @@ function App() {
                 <h2 className="text-2xl sm:text-3xl font-serif font-semibold text-stone-900 mb-3">
                   Explore the 12 Patterns
                 </h2>
-                <p className="text-stone-600 max-w-2xl mx-auto">
+                <p className="text-stone-600 max-w-2xl mx-auto mb-6">
                   These patterns reveal why the 4×4 framework feels so complete.
                   Click any pattern to explore it in depth.
                 </p>
+
+                {/* Category Filter */}
+                <div className="flex justify-center gap-2 mt-6">
+                  <button
+                    onClick={() => setCategoryFilter('ALL')}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      categoryFilter === 'ALL'
+                        ? 'bg-stone-900 text-white shadow-md'
+                        : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
+                    }`}
+                  >
+                    All Patterns
+                    <span className="ml-1.5 text-xs opacity-75">({patternsData.patterns.length})</span>
+                  </button>
+                  <button
+                    onClick={() => setCategoryFilter('STRUCTURAL')}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      categoryFilter === 'STRUCTURAL'
+                        ? 'bg-blue-600 text-white shadow-md'
+                        : 'bg-white text-blue-600 hover:bg-blue-50 border border-blue-200'
+                    }`}
+                  >
+                    Structural
+                    <span className="ml-1.5 text-xs opacity-75">
+                      ({patternsData.patterns.filter(p => p.category === 'STRUCTURAL').length})
+                    </span>
+                  </button>
+                  <button
+                    onClick={() => setCategoryFilter('COMPLETENESS')}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                      categoryFilter === 'COMPLETENESS'
+                        ? 'bg-emerald-600 text-white shadow-md'
+                        : 'bg-white text-emerald-600 hover:bg-emerald-50 border border-emerald-200'
+                    }`}
+                  >
+                    Completeness
+                    <span className="ml-1.5 text-xs opacity-75">
+                      ({patternsData.patterns.filter(p => p.category === 'COMPLETENESS').length})
+                    </span>
+                  </button>
+                </div>
               </div>
               <PatternMatrix
-                patterns={patternsData.patterns}
+                patterns={patternsData.patterns.filter(p =>
+                  categoryFilter === 'ALL' || p.category === categoryFilter
+                )}
                 onPatternClick={handlePatternClick}
                 highlightedPatternIds={selectedLens.highlightPatterns ?? []}
               />
