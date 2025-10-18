@@ -1,15 +1,16 @@
 {
-  "lenses": [
-    {
-      "id": "lds",
-      "name": "MM4 ward (original)",
-      "covenant": "make & keep their covenants with God",
-      "gather": "gather Israel",
-      "veil": "on either side of the veil",
-      "color": "#1e40af",
-      "description": "The original teaching from President Nelson",
-      "highlightPatterns": []
-    },
+  "template": {
+    "id": "lds",
+    "name": "MM4 Ward (Template)",
+    "covenant": "make & keep their covenants with God",
+    "gather": "gather Israel",
+    "veil": "on either side of the veil",
+    "color": "#1e40af",
+    "description": "The original revelation - the source pattern that contains the structure",
+    "isTemplate": true,
+    "highlightPatterns": []
+  },
+  "translations": [
     {
       "id": "psychological",
       "name": "Psychological",
@@ -18,7 +19,8 @@
       "veil": "within and beyond awareness",
       "color": "#7c3aed",
       "description": "Understanding through the lens of human development and integration",
-      "highlightPatterns": [7, 8, 11]
+      "highlightPatterns": [7, 8, 11],
+      "isTemplate": false
     },
     {
       "id": "ecological",
@@ -28,7 +30,8 @@
       "veil": "in visible and invisible systems",
       "color": "#059669",
       "description": "Seeing through interconnection with all living systems",
-      "highlightPatterns": [2, 5, 10]
+      "highlightPatterns": [2, 5, 10],
+      "isTemplate": false
     },
     {
       "id": "therapeutic",
@@ -38,7 +41,8 @@
       "veil": "in defended and vulnerable places",
       "color": "#db2777",
       "description": "The healing journey toward authenticity and wholeness",
-      "highlightPatterns": [6, 8, 12]
+      "highlightPatterns": [6, 8, 12],
+      "isTemplate": false
     },
     {
       "id": "philosophical",
@@ -48,7 +52,8 @@
       "veil": "in thought and in practice",
       "color": "#dc2626",
       "description": "Living according to wisdom and virtue",
-      "highlightPatterns": [2, 4, 11]
+      "highlightPatterns": [2, 4, 11],
+      "isTemplate": false
     },
     {
       "id": "ancestral",
@@ -58,7 +63,8 @@
       "veil": "in past and present time",
       "color": "#d97706",
       "description": "Connecting with the wisdom and presence of those who came before",
-      "highlightPatterns": [1, 3, 5]
+      "highlightPatterns": [1, 3, 5],
+      "isTemplate": false
     },
     {
       "id": "developmental",
@@ -68,7 +74,8 @@
       "veil": "where they are and where they're becoming",
       "color": "#0891b2",
       "description": "The continuous evolution toward greater complexity and wholeness",
-      "highlightPatterns": [6, 8, 10]
+      "highlightPatterns": [6, 8, 10],
+      "isTemplate": false
     },
     {
       "id": "relational",
@@ -78,7 +85,8 @@
       "veil": "in self and in other",
       "color": "#ec4899",
       "description": "The web of relationships that sustain us",
-      "highlightPatterns": [3, 6, 12]
+      "highlightPatterns": [3, 6, 12],
+      "isTemplate": false
     },
     {
       "id": "creative",
@@ -88,7 +96,8 @@
       "veil": "in potential and in form",
       "color": "#8b5cf6",
       "description": "Birthing new possibilities into being",
-      "highlightPatterns": [8, 10, 12]
+      "highlightPatterns": [8, 10, 12],
+      "isTemplate": false
     },
     {
       "id": "mystical",
@@ -98,7 +107,8 @@
       "veil": "in form and formlessness",
       "color": "#6366f1",
       "description": "The direct experience of unity consciousness",
-      "highlightPatterns": [8, 9, 12]
+      "highlightPatterns": [8, 9, 12],
+      "isTemplate": false
     },
     {
       "id": "scientific",
@@ -108,7 +118,8 @@
       "veil": "in the known and the unknown",
       "color": "#0284c7",
       "description": "The pursuit of understanding through rigorous inquiry",
-      "highlightPatterns": [2, 4, 11]
+      "highlightPatterns": [2, 4, 11],
+      "isTemplate": false
     },
     {
       "id": "justice",
@@ -118,7 +129,8 @@
       "veil": "at the margins and at the center",
       "color": "#be123c",
       "description": "Working toward equity, liberation, and collective wellbeing",
-      "highlightPatterns": [2, 3, 5]
+      "highlightPatterns": [2, 3, 5],
+      "isTemplate": false
     },
     {
       "id": "contemplative",
@@ -128,7 +140,8 @@
       "veil": "on the surface and in the depths",
       "color": "#475569",
       "description": "The practice of presence and deep awareness",
-      "highlightPatterns": [6, 7, 9]
+      "highlightPatterns": [6, 7, 9],
+      "isTemplate": false
     }
   ]
 }

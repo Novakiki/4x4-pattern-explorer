@@ -51,8 +51,9 @@ export default function QuoteDisplay({ selectedLens }) {
         {selectedLens.id !== 'lds' && (
           <div className="mt-8 pt-8 border-t border-stone-200">
             <p className="text-stone-600 text-sm leading-relaxed">
-              The same truth, translated. Each lens illuminates a different facet of wholeness,
-              helping different people recognize the same invitation.
+              <strong>The same truth, translated.</strong> President Nelson's teaching is the template.
+              This {selectedLens.name} translation reveals the same pattern—helping those drawn to this
+              perspective recognize the universal structure of WHERE / VALUE / UNITE.
             </p>
           </div>
         )}

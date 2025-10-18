@@ -9,8 +9,11 @@ import lensesData from './data/lenses.json'
 import patternsData from './data/patterns.json'
 import { operationsData, planData } from './data/operationsData'
 
+// Combine template + translations into a single array for compatibility
+const allLenses = [lensesData.template, ...lensesData.translations]
+
 function App() {
-  const [selectedLens, setSelectedLens] = useState(lensesData.lenses[0])
+  const [selectedLens, setSelectedLens] = useState(lensesData.template)
   const [selectedPattern, setSelectedPattern] = useState(null)
   const [view, setView] = useState('home') // 'home', 'pattern', 'matrix'
 
@@ -22,7 +25,7 @@ function App() {
     const patternId = params.get('pattern')
 
     if (lensId) {
-      const lens = lensesData.lenses.find(l => l.id === lensId)
+      const lens = allLenses.find(l => l.id === lensId)
       if (lens) setSelectedLens(lens)
     }
 
@@ -112,7 +115,8 @@ function App() {
             {/* Lens Selector */}
             <section>
               <LensSelector
-                lenses={lensesData.lenses}
+                template={lensesData.template}
+                translations={lensesData.translations}
                 selectedLens={selectedLens}
                 onLensChange={handleLensChange}
               />
@@ -162,7 +166,7 @@ function App() {
           <MetaMatrix
             selectedLens={selectedLens}
             onLensChange={handleLensChange}
-            allLenses={lensesData.lenses}
+            allLenses={allLenses}
           />
         )}
       </main>
