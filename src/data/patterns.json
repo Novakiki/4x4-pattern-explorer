@@ -13,7 +13,26 @@
       },
       "whyItMatters": "When we only focus on the urgent present, we lose context and vision. This framework ensures you're connected to all of time—rooted in the past, present in this moment, asking eternal questions, and envisioning the future.",
       "reflection": "Which dimension of time do you naturally gravitate toward? Which do you avoid?",
-      "ldsExample": "Mission work (present), temple worship (eternal), family history (past), gathering Israel (future)"
+      "ldsExample": "Mission work (present), temple worship (eternal), family history (past), gathering Israel (future)",
+      "type": "MAPPING",
+      "derivation": {
+        "confidence": "HIGH",
+        "signals": [
+          "temporal_language",
+          "four_verb_mapping",
+          "categorical_labels",
+          "external_framework"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected"
+        ]
+      },
+      "operationMapping": {
+        "OBSERVE": "Present moment awareness",
+        "ASK": "Eternal/timeless (stepping outside time)",
+        "REMEMBER": "Past (what came before)",
+        "IMAGINE": "Future (what's not yet here)"
+      }
     },
     {
       "id": 2,
@@ -26,7 +45,31 @@
       },
       "whyItMatters": "Integration requires bridging apparent opposites—transcendent and grounded, past and future. This framework literally enacts that integration through its structure.",
       "reflection": "Do you tend to live more on the horizontal axis (time-focused) or vertical axis (dimension-focused)? What would balance look like?",
-      "ldsExample": "Heaven and earth, past and future—the cross pattern appears in temple architecture and covenant theology"
+      "ldsExample": "Heaven and earth, past and future—the cross pattern appears in temple architecture and covenant theology",
+      "type": "PARTITION",
+      "derivation": {
+        "confidence": "HIGH",
+        "signals": [
+          "sequential_verbs",
+          "axis_language",
+          "dichotomy",
+          "complementary_pairs",
+          "external_framework"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected"
+        ]
+      },
+      "operationPartition": {
+        "horizontal": [
+          "REMEMBER",
+          "IMAGINE"
+        ],
+        "vertical": [
+          "OBSERVE",
+          "ASK"
+        ]
+      }
     },
     {
       "id": 3,
@@ -41,7 +84,26 @@
       },
       "whyItMatters": "Human wholeness requires all four relationships. When any one is neglected, we become unbalanced. This framework ensures no relationship is forgotten.",
       "reflection": "Which relationship feels most alive for you right now? Which needs attention?",
-      "ldsExample": "Living neighbors, God through covenant, ancestors, gathering Israel into community"
+      "ldsExample": "Living neighbors, God through covenant, ancestors, gathering Israel into community",
+      "type": "MAPPING",
+      "derivation": {
+        "confidence": "HIGH",
+        "signals": [
+          "axis_language",
+          "four_verb_mapping",
+          "categorical_labels",
+          "external_framework"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected"
+        ]
+      },
+      "operationMapping": {
+        "OBSERVE": "Self + Other (those immediately present)",
+        "ASK": "Self + Source (connection to what's greater)",
+        "REMEMBER": "Self + Lineage (those who came before)",
+        "IMAGINE": "Self + Community (the collective being formed)"
+      }
     },
     {
       "id": 4,
@@ -56,7 +118,23 @@
       },
       "whyItMatters": "We're often taught to privilege one way of knowing, but truth comes through all four channels. This framework honors every way humans can discover what's real.",
       "reflection": "Which way of knowing feels most natural to you? Which have you been taught to distrust?",
-      "ldsExample": "Personal experience, revelation in the temple, family history records, prophetic vision"
+      "ldsExample": "Personal experience, revelation in the temple, family history records, prophetic vision",
+      "type": "MAPPING",
+      "derivation": {
+        "confidence": "HIGH",
+        "signals": [
+          "four_verb_mapping",
+          "categorical_labels",
+          "external_framework"
+        ],
+        "ambiguities": []
+      },
+      "operationMapping": {
+        "OBSERVE": "Empirical knowing (through direct experience and senses)",
+        "ASK": "Inspired knowing (through opening to guidance beyond yourself)",
+        "REMEMBER": "Historical knowing (through story, record, and lineage)",
+        "IMAGINE": "Intuitive knowing (through vision and pattern-recognition)"
+      }
     },
     {
       "id": 5,
@@ -71,7 +149,26 @@
       },
       "whyItMatters": "Every meaningful framework must bridge different states of being—present and absent, known and unknown, visible and invisible. This pattern ensures you're not stuck on just one side.",
       "reflection": "What boundary are you working with right now? Which of the four positions feels most needed?",
-      "ldsExample": "Working with the living, temple as threshold, reaching to ancestors across the veil, gathering toward unity"
+      "ldsExample": "Working with the living, temple as threshold, reaching to ancestors across the veil, gathering toward unity",
+      "type": "MAPPING",
+      "derivation": {
+        "confidence": "HIGH",
+        "signals": [
+          "axis_language",
+          "four_verb_mapping",
+          "categorical_labels",
+          "external_framework"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected"
+        ]
+      },
+      "operationMapping": {
+        "OBSERVE": "This side of the boundary (the present, known, visible)",
+        "ASK": "At the threshold (liminal space between states)",
+        "REMEMBER": "The other side (what's distant, past, or beyond awareness)",
+        "IMAGINE": "Dissolving boundaries (integration and wholeness)"
+      }
     },
     {
       "id": 6,
@@ -86,7 +183,22 @@
       },
       "whyItMatters": "All action with no contemplation leads to exhaustion. All contemplation with no action leads to stagnation. This framework builds rest into the cycle.",
       "reflection": "Are you more naturally action-oriented or contemplation-oriented? What would balance feel like?",
-      "ldsExample": "Missionary work (active), temple worship (contemplative), family history work (active), prayerful planning (contemplative)"
+      "ldsExample": "Missionary work (active), temple worship (contemplative), family history work (active), prayerful planning (contemplative)",
+      "type": "MIXED",
+      "derivation": {
+        "confidence": "MEDIUM",
+        "signals": [
+          "temporal_language",
+          "cycle_pattern",
+          "axis_language",
+          "four_verb_mapping",
+          "categorical_labels"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected",
+          "Pattern exhibits characteristics of multiple types"
+        ]
+      }
     },
     {
       "id": 7,
@@ -101,7 +213,23 @@
       },
       "whyItMatters": "Jung argued that psychological wholeness requires developing all four functions. Most people have one or two that dominate. This framework ensures you're touching all four, even if some feel uncomfortable.",
       "reflection": "Which function is your 'home base'? Which one challenges you most?",
-      "ldsExample": "Serving others (sensation), seeking answers in temple (thinking), connecting with ancestors (feeling), envisioning gathering (intuition)"
+      "ldsExample": "Serving others (sensation), seeking answers in temple (thinking), connecting with ancestors (feeling), envisioning gathering (intuition)",
+      "type": "MAPPING",
+      "derivation": {
+        "confidence": "HIGH",
+        "signals": [
+          "four_verb_mapping",
+          "categorical_labels",
+          "external_framework"
+        ],
+        "ambiguities": []
+      },
+      "operationMapping": {
+        "OBSERVE": "Sensation (present sensory awareness)",
+        "ASK": "Thinking (inquiry, reasoning, understanding)",
+        "REMEMBER": "Feeling (emotional connection, meaning-making)",
+        "IMAGINE": "Intuition (possibility, pattern-seeing)"
+      }
     },
     {
       "id": 8,
@@ -117,7 +245,25 @@
       },
       "whyItMatters": "This is how therapy works. How education works. How scientific discovery works. How spiritual awakening works. The framework isn't prescribing anything artificial—it's describing the natural cycle of human development.",
       "reflection": "Where are you in this cycle right now with your biggest current challenge?",
-      "ldsExample": "Notice a neighbor's need → ask in prayer → remember similar situations → imagine how to help → observe the outcome"
+      "ldsExample": "Notice a neighbor's need → ask in prayer → remember similar situations → imagine how to help → observe the outcome",
+      "type": "SEQUENCE",
+      "derivation": {
+        "confidence": "HIGH",
+        "signals": [
+          "explicit_steps",
+          "temporal_language",
+          "cycle_pattern",
+          "sequential_verbs"
+        ],
+        "ambiguities": []
+      },
+      "operationSequence": [
+        "OBSERVE",
+        "ASK",
+        "REMEMBER",
+        "IMAGINE",
+        "OBSERVE"
+      ]
     },
     {
       "id": 9,
@@ -132,7 +278,21 @@
       },
       "whyItMatters": "The framework literally breathes. It's rhythmic, cyclical, life-giving. You can't rush it. You can't skip steps. It moves at the pace of life itself.",
       "reflection": "Can you feel the breath rhythm in your practice? What phase are you in right now?",
-      "ldsExample": "Receive from missionary work, pause in temple worship, release through family history service, rest before beginning again"
+      "ldsExample": "Receive from missionary work, pause in temple worship, release through family history service, rest before beginning again",
+      "type": "MIXED",
+      "derivation": {
+        "confidence": "MEDIUM",
+        "signals": [
+          "temporal_language",
+          "cycle_pattern",
+          "four_verb_mapping",
+          "categorical_labels"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected",
+          "Pattern exhibits characteristics of multiple types"
+        ]
+      }
     },
     {
       "id": 10,
@@ -147,7 +307,25 @@
       },
       "whyItMatters": "Because it's fractal, you can practice this at any scale. You don't need to 'do big things.' The pattern works in a 5-minute interaction just as well as in a 40-year life arc.",
       "reflection": "What's the smallest scale where you could practice this today?",
-      "ldsExample": "From a single conversation to an entire dispensation—the pattern of observe, ask, remember, imagine repeats at every level"
+      "ldsExample": "From a single conversation to an entire dispensation—the pattern of observe, ask, remember, imagine repeats at every level",
+      "type": "SEQUENCE",
+      "derivation": {
+        "confidence": "MEDIUM",
+        "signals": [
+          "temporal_language",
+          "cycle_pattern",
+          "categorical_labels"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected"
+        ]
+      },
+      "operationSequence": [
+        "OBSERVE",
+        "ASK",
+        "REMEMBER",
+        "IMAGINE"
+      ]
     },
     {
       "id": 11,
@@ -162,7 +340,22 @@
       },
       "whyItMatters": "The framework isn't 'religious vs. scientific.' It's how consciousness itself works. Science and spirituality use the same underlying pattern because it's the pattern of discovery itself.",
       "reflection": "Have you been taught that faith and inquiry oppose each other? What if they're the same motion?",
-      "ldsExample": "Notice a need, pray for guidance, study the scriptures and family records, envision how to move forward"
+      "ldsExample": "Notice a need, pray for guidance, study the scriptures and family records, envision how to move forward",
+      "type": "MAPPING",
+      "derivation": {
+        "confidence": "MEDIUM",
+        "signals": [
+          "four_verb_mapping",
+          "categorical_labels"
+        ],
+        "ambiguities": []
+      },
+      "operationMapping": {
+        "OBSERVE": "Observation (collect data, notice what is)",
+        "ASK": "Hypothesis (formulate questions, propose answers)",
+        "REMEMBER": "Research (review existing knowledge, consult sources)",
+        "IMAGINE": "Theory (propose what could be, test predictions)"
+      }
     },
     {
       "id": 12,
@@ -177,7 +370,30 @@
       },
       "whyItMatters": "Neither receptive nor active energy is privileged. Both are essential. The framework won't work if you only do half. You need to receive AND initiate, rest AND act.",
       "reflection": "Which energy feels more natural to you? What would it mean to honor both?",
-      "ldsExample": "Receive in missionary work, initiate in temple worship, receive from ancestors, initiate in gathering"
+      "ldsExample": "Receive in missionary work, initiate in temple worship, receive from ancestors, initiate in gathering",
+      "type": "MAPPING",
+      "derivation": {
+        "confidence": "MEDIUM",
+        "signals": [
+          "axis_language",
+          "four_verb_mapping",
+          "categorical_labels"
+        ],
+        "ambiguities": [
+          "Multiple pattern type signals detected"
+        ]
+      },
+      "operationMapping": {
+        "OBSERVE": "Receptive (receiving what is, being present)",
+        "ASK": "Active (seeking, pursuing, initiating)",
+        "REMEMBER": "Receptive (receiving from the past, being taught)",
+        "IMAGINE": "Active (creating, building, envisioning)"
+      }
     }
-  ]
+  ],
+  "_metadata": {
+    "lastUpdated": "2025-10-18T05:30:06.221Z",
+    "classificationVersion": "1.0.0",
+    "note": "Type classifications are computationally derived from structural signals"
+  }
 }
